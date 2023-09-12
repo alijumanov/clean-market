@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import HomeRouter from "./routes/HomeRouter";
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+const App = () => {
+
+  // react-query
+
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div>LOADING...</div>}>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path='/' element={<HomeRouter />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </PersistGate>
+        </Provider>
+      </QueryClientProvider>
+    </Suspense>
   );
-}
+};
 
 export default App;
