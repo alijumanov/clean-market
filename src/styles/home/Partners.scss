@@ -1,0 +1,72 @@
+.Partners {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .mySwiper {
+            width: 100%;
+            padding: 0 28px;
+
+            @media (max-width:767px) {
+                padding: 0 8px;
+            }
+
+            .partner {
+                height: 8vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #0B8297;
+
+                @media (max-width:767px) {
+                    height: 20vw;
+                }
+
+                .img {
+                    max-width: 100%;
+                    min-width: 100%;
+                    max-height: 100%;
+                    min-height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                left: 0;
+                width: 2.2vw;
+                height: 2.2vw;
+                display: flex;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                border: solid 1px #9D9D9D;
+
+                &::after {
+                    font-size: 1.2vw;
+                    color: #9D9D9D;
+
+                    @media (max-width:767px) {
+                        font-size: 1.8vw;
+                    }
+                }
+
+                @media (max-width:767px) {
+                    width: 5.5vw;
+                    height: 5.5vw;
+                    margin-top: -2.5vw;
+                }
+            }
+
+            .swiper-button-next {
+                right: 0;
+                left: auto;
+            }
+        }
+    }
+}

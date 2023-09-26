@@ -1,0 +1,125 @@
+.Categories {
+    .wrapper {
+        display: flex;
+        padding-top: 14vw;
+        justify-content: space-between;
+
+        @media (max-width:767px) {
+            padding-top: 45vw;
+        }
+
+        .left {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+
+            @media (max-width:767px) {
+                width: 42%;
+            }
+
+            .name {
+                font-weight: 600;
+            }
+
+            .link {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                justify-content: space-between;
+
+                .min-text {
+                    width: 60%;
+                    color: black;
+                }
+
+                .icn {
+                    max-width: 1.3vw;
+                    min-width: 1.3vw;
+
+                    @media (max-width:767px) {
+                        max-width: 4vw;
+                        min-width: 4vw;
+                    }
+                }
+            }
+
+            .settings {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                background-color: #0B8297;
+
+                .text {
+                    width: 100%;
+                    color: white;
+                    font-weight: 500;
+                }
+
+                .img {
+                    max-width: 90%;
+                    min-width: 90%;
+                }
+
+                .min-text {
+                    width: 100%;
+                    opacity: 0.7;
+                    color: white;
+                }
+            }
+        }
+
+        .right {
+            width: 72%;
+            display: flex;
+            flex-direction: column;
+
+            @media (max-width:767px) {
+                width: 50%;
+            }
+
+            .name{
+                font-weight: 600;
+            }
+
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(3, 3fr);
+
+                @media (max-width:767px) {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+
+                .product {
+                    display: flex;
+                    text-decoration: none;
+                    flex-direction: column;
+                    border: solid 1px rgb(231, 231, 231);
+
+                    .img {
+                        max-width: 90%;
+                        min-width: 90%;
+                        margin-left: 5%;
+                        max-height: 12vw;
+                        min-height: 12vw;
+                        object-fit: contain;
+
+                        @media (max-width:767px) {
+                            max-height: 25vw;
+                            min-height: 25vw;
+                        }
+                    }
+
+                    .text {
+                        color: black;
+                        font-weight: 500;
+                    }
+
+                    .min-text {
+                        opacity: 0.7;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

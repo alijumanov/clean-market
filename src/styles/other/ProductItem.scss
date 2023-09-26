@@ -1,0 +1,122 @@
+.ProductItem {
+    .wrapper {
+        display: flex;
+        padding-top: 14vw;
+        flex-direction: column;
+
+        @media (max-width:767px) {
+            padding-top: 45vw;
+        }
+
+        .name {
+            width: 50%;
+
+            @media (max-width:767px) {
+                width: 100%;
+            }
+        }
+
+        .infos {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            @media (max-width:767px) {
+                flex-direction: column;
+            }
+
+            .left {
+                width: 35%;
+                display: flex;
+                flex-direction: column;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+
+                .main_img {
+                    .img {
+                        max-width: 100%;
+                        min-width: 100%;
+                    }
+                }
+
+                .mySwiper {
+                    width: 100%;
+
+                    .img_card {
+                        width: 100%;
+
+                        .img {
+                            max-width: 100%;
+                            min-width: 100%;
+                            max-height: 5vw;
+                            min-height: 5vw;
+                            cursor: pointer;
+                            object-fit: cover;
+                            border: solid 1px rgb(205, 205, 205);
+
+                            @media (max-width:767px) {
+                                max-height: 23vw;
+                                min-height: 23vw;
+                            }
+                        }
+                    }
+
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        left: 0;
+
+                        &::after {
+                            font-size: 1.5vw;
+
+                            @media (max-width:767px) {
+                                font-size: 4.5vw;
+                            }
+                        }
+                    }
+
+                    .swiper-button-next {
+                        right: 0;
+                        left: auto;
+                    }
+                }
+            }
+
+            .middle {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+
+                .text {
+                    font-weight: 600;
+                }
+            }
+
+            .right {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+
+                .buy_btn {
+                    border: none;
+                    color: white;
+                    background-color: #0B8297;
+                }
+            }
+        }
+
+        .desc {
+            opacity: 0.6;
+            color: black;
+        }
+    }
+}

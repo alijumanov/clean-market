@@ -1,0 +1,134 @@
+.Infographics {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .infos {
+            display: grid;
+            padding: 0 10vw;
+            cursor: pointer;
+            background-color: white;
+            grid-template-columns: repeat(4, 4fr);
+
+            @media (max-width:767px) {
+                padding: 0;
+                grid-template-columns: repeat(2, 2fr);
+            }
+
+            .info {
+                height: 12vw;
+                display: flex;
+                position: relative;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                border: solid 1px #0B8297;
+
+                &:hover {
+                    .child {
+                        opacity: 1;
+                        transition: 0.3s;
+                        -webkit-transition: 0.3s;
+                        -moz-transition: 0.3s;
+                        -ms-transition: 0.3s;
+                        -o-transition: 0.3s;
+                        transform: translate(80%, -35%);
+                        -webkit-transform: translate(80%, -35%);
+                        -moz-transform: translate(80%, -35%);
+                        -ms-transform: translate(80%, -35%);
+                        -o-transform: translate(80%, -35%);
+
+                        @media (max-width:767px) {
+                            transform: translate(80%, -65%);
+                            -webkit-transform: translate(80%, -65%);
+                            -moz-transform: translate(80%, -65%);
+                            -ms-transform: translate(80%, -65%);
+                            -o-transform: translate(80%, -65%);
+                        }
+                    }
+                }
+
+                @media (max-width:767px) {
+                    height: 40vw;
+                }
+
+                .title {
+                    font-weight: 400;
+                    color: #0B8297;
+                    text-align: center;
+                }
+
+                .txt {
+                    opacity: 0.6;
+                    color: black;
+                    text-align: center;
+                }
+
+                .child {
+                    opacity: 0;
+                    width: 7vw;
+                    height: 7vw;
+                    display: flex;
+                    transition: 0.3s;
+                    -webkit-transition: 0.3s;
+                    -moz-transition: 0.3s;
+                    -ms-transition: 0.3s;
+                    -o-transition: 0.3s;
+                    position: absolute;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: white;
+                    border: solid 1px #0B8297;
+                    transform: translate(0%, 0%);
+                    -webkit-transform: translate(0%, 0%);
+                    -moz-transform: translate(0%, 0%);
+                    -ms-transform: translate(0%, 0%);
+                    -o-transform: translate(0%, 0%);
+
+                    @media (max-width:767px) {
+                        opacity: 1;
+                        width: 19vw;
+                        height: 19vw;
+                        transform: translate(80%, -65%);
+                        -webkit-transform: translate(80%, -65%);
+                        -moz-transform: translate(80%, -65%);
+                        -ms-transform: translate(80%, -65%);
+                        -o-transform: translate(80%, -65%);
+                    }
+
+                    .name {
+                        color: #0B8297;
+                        text-align: center;
+                    }
+
+                    .min-text {
+                        opacity: 0.6;
+                        color: black;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .desc {
+            opacity: 0.6;
+            color: black;
+            padding: 0 10vw;
+
+            @media (max-width:767px) {
+                padding: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.FAQ {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+
+            .answer {
+                color: #959595;
+            }
+        }
+    }
+}

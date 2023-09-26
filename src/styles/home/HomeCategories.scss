@@ -1,0 +1,89 @@
+.HomeCategories {
+    .wrapper {
+        display: flex;
+        // padding-top: 0;
+        flex-direction: column;
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .text {
+                color: #0B8297;
+                text-decoration: underline;
+            }
+        }
+
+        .mySwiper {
+            width: 100%;
+
+            .product {
+                display: flex;
+                text-decoration: none;
+                flex-direction: column;
+                border: solid 1px rgb(231, 231, 231);
+
+                .img {
+                    max-width: 90%;
+                    min-width: 90%;
+                    margin-left: 5%;
+                    max-height: 12vw;
+                    min-height: 12vw;
+                    object-fit: contain;
+
+                    @media (max-width:767px) {
+                        max-height: 25vw;
+                        min-height: 25vw;
+                    }
+                }
+
+                .text {
+                    color: black;
+                    font-weight: 500;
+                }
+
+                .min-text {
+                    opacity: 0.7;
+                    color: black;
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                left: 0;
+                width: 2.2vw;
+                height: 2.2vw;
+                display: flex;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                border: solid 1px #9D9D9D;
+
+                &::after {
+                    font-size: 1.2vw;
+                    color: #9D9D9D;
+
+                    @media (max-width:767px) {
+                        font-size: 2.8vw;
+                    }
+                }
+
+                @media (max-width:767px) {
+                    width: 6vw;
+                    height: 6vw;
+                }
+            }
+
+            .swiper-button-next {
+                right: 0;
+                left: auto;
+            }
+        }
+    }
+}

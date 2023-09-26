@@ -1,0 +1,110 @@
+.Footer {
+    background-color: #0B8297;
+
+    .wrapper {
+        display: flex;
+        align-items: flex-end;
+
+        @media (max-width:767px) {
+            flex-wrap: wrap;
+        }
+
+        .tool {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+
+            &:nth-child(1) {
+                width: 70%;
+            }
+
+            @media (max-width:767px) {
+                width: 40%;
+            }
+
+            .big-text {
+                color: white;
+                font-weight: 500;
+            }
+
+            .min-text {
+                color: white;
+            }
+
+            .text {
+                color: white;
+                font-weight: 600;
+            }
+
+            .location {
+                display: flex;
+                color: white;
+                align-items: center;
+
+                .icn {
+                    max-width: 1vw;
+                    min-width: 1vw;
+
+                    @media (max-width:767px) {
+                        max-width: 3.3vw;
+                        min-width: 3.3vw;
+                    }
+                }
+
+                .min-text {
+                    color: white;
+                }
+            }
+
+            .socials {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    width: 2.5vw;
+                    transition: 0.3s;
+                    -webkit-transition: 0.3s;
+                    -moz-transition: 0.3s;
+                    -ms-transition: 0.3s;
+                    -o-transition: 0.3s;
+
+                    &:hover {
+                        transform: rotate(360deg) scale(1.2);
+                        -webkit-transform: rotate(360deg) scale(1.2);
+                        -moz-transform: rotate(360deg) scale(1.2);
+                        -ms-transform: rotate(360deg) scale(1.2);
+                        -o-transform: rotate(360deg) scale(1.2);
+                    }
+
+                    @media (max-width:767px) {
+                        width: 7vw;
+                    }
+
+                    .icn {
+                        max-width: 100%;
+                        min-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        padding-top: 0;
+        padding-bottom: 0;
+        align-items: center;
+        background-color: #EAEAEA;
+
+        @media (max-width:767px) {
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
+
+        .text {
+            opacity: 0.5;
+            color: black;
+            text-decoration: none;
+        }
+    }
+}
