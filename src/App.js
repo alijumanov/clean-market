@@ -52,6 +52,7 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<HomeRouter changeProdValue={changeProdValue} />} />
                 <Route path='/categories' element={<Categories />} />
+                <Route path='/categories/:id' element={<Categories />} />
                 <Route path='/products' element={<Products changeProdValue={changeProdValue} />} />
                 <Route path='/products/:id' element={<ProductItem changeProdValue={changeProdValue} />} />
                 <Route path='/news/:id' element={<News />} />

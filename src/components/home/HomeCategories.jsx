@@ -1,13 +1,20 @@
 import React from 'react';
 import "swiper/css";
 import "swiper/css/navigation";
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import '../../styles/home/HomeCategories.scss';
-import Img from '../../assets/images/category.png';
+import { fetchCategories } from '../../api/Api';
+import { getName } from '../../languages/language';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from 'swiper/modules';
 
 const HomeCategories = () => {
+
+    // API options
+
+    const dataCategories = useQuery('categories', fetchCategories);
+
     return (
         <div className='HomeCategories parent'>
             <div className="wrapper gap-2">
@@ -33,48 +40,15 @@ const HomeCategories = () => {
                         }
                     }}
                 >
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/`} className="product gap-1 pd-1 round-1">
-                            <p className="text">Поломоичные Машины</p>
-                            <img src={Img} alt="img" className="img" />
-                            <p className="min-text">12 ta mahsulot</p>
-                        </Link>
-                    </SwiperSlide>
+                    {dataCategories?.data?.data?.map((item) => (
+                        <SwiperSlide key={item?.id}>
+                            <Link to={`/categories/${item?.id}`} className="product gap-1 pd-1 round-1">
+                                <p className="text">{getName(item)}</p>
+                                <img src={item?.image} alt="img" className="img" />
+                                <p className="min-text">12 ta mahsulot</p>
+                            </Link>
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </div>
