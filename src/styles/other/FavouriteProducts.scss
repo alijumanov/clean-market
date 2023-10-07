@@ -1,22 +1,21 @@
-.TopProducts {
+.FavouriteProducts {
     .wrapper {
         display: flex;
-        padding-top: 0;
+        padding-top: 14vw;
+        min-height: 100vh;
         flex-direction: column;
 
-        .head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .text {
-                color: #086e81;
-                text-decoration: underline;
-            }
+        @media (max-width:767px) {
+            padding-top: 45vw;
         }
 
-        .mySwiper {
-            width: 100%;
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 4fr);
+
+            @media (max-width:767px) {
+                grid-template-columns: repeat(2, 2fr);
+            }
 
             .product {
                 display: flex;
@@ -111,7 +110,6 @@
                         @media (max-width:767px) {
                             padding-top: 1.5vw;
                             padding-bottom: 1.5vw;
-                            padding: 1.5vw 2vw;
                         }
 
                         .icn {
@@ -119,49 +117,12 @@
                             min-width: 1.4vw;
 
                             @media (max-width:767px) {
-                                max-width: 3.5vw;
-                                min-width: 3.5vw;
+                                max-width: 4vw;
+                                min-width: 4vw;
                             }
                         }
                     }
                 }
-            }
-
-            .swiper-button-next,
-            .swiper-button-prev {
-                left: 0;
-                width: 2.2vw;
-                height: 2.2vw;
-                display: flex;
-                margin-top: -2vw;
-                border-radius: 50%;
-                -webkit-border-radius: 50%;
-                -moz-border-radius: 50%;
-                -ms-border-radius: 50%;
-                -o-border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                background-color: white;
-                border: solid 1px #9D9D9D;
-
-                &::after {
-                    font-size: 1.2vw;
-                    color: #9D9D9D;
-
-                    @media (max-width:767px) {
-                        font-size: 2.8vw;
-                    }
-                }
-
-                @media (max-width:767px) {
-                    width: 6vw;
-                    height: 6vw;
-                }
-            }
-
-            .swiper-button-next {
-                right: 0;
-                left: auto;
             }
         }
     }

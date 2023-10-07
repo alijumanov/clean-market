@@ -27,7 +27,7 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: center;
-                border: solid 1px #0B8297;
+                border: solid 1px #086e81;
 
                 &:hover {
                     .child {
@@ -59,7 +59,7 @@
 
                 .title {
                     font-weight: 400;
-                    color: #0B8297;
+                    color: #086e81;
                     text-align: center;
                 }
 
@@ -89,7 +89,7 @@
                     flex-direction: column;
                     justify-content: center;
                     background-color: white;
-                    border: solid 1px #0B8297;
+                    border: solid 1px #086e81;
                     transform: translate(0%, 0%);
                     -webkit-transform: translate(0%, 0%);
                     -moz-transform: translate(0%, 0%);
@@ -108,7 +108,7 @@
                     }
 
                     .name {
-                        color: #0B8297;
+                        color: #086e81;
                         text-align: center;
                     }
 

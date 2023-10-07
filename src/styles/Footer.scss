@@ -1,5 +1,5 @@
 .Footer {
-    background-color: #0B8297;
+    background-color: #086e81;
 
     .wrapper {
         display: flex;
@@ -62,19 +62,6 @@
 
                 .icon {
                     width: 2.5vw;
-                    transition: 0.3s;
-                    -webkit-transition: 0.3s;
-                    -moz-transition: 0.3s;
-                    -ms-transition: 0.3s;
-                    -o-transition: 0.3s;
-
-                    &:hover {
-                        transform: rotate(360deg) scale(1.2);
-                        -webkit-transform: rotate(360deg) scale(1.2);
-                        -moz-transform: rotate(360deg) scale(1.2);
-                        -ms-transform: rotate(360deg) scale(1.2);
-                        -o-transform: rotate(360deg) scale(1.2);
-                    }
 
                     @media (max-width:767px) {
                         width: 7vw;

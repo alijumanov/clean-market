@@ -3,16 +3,18 @@ import { Provider } from 'react-redux';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import News from './components/other/News';
+import About from './components/other/About';
 import HomeRouter from "./routes/HomeRouter";
+import Modal from './components/modals/Modal';
 import { persistor, store } from './redux/store';
 import Products from './components/other/Products';
 import Categories from './components/other/Categories';
 import ProductItem from './components/other/ProductItem';
+import ContactModal from './components/modals/ContactModal';
 import { PersistGate } from 'redux-persist/integration/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ContactModal from './components/modals/ContactModal';
-import Modal from './components/modals/Modal';
+import FavouriteProducts from './components/other/FavouriteProducts';
 
 const App = () => {
 
@@ -48,12 +50,15 @@ const App = () => {
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <BrowserRouter>
-              <Navbar />
+              <Navbar changeProdValue={changeProdValue} />
               <Routes>
                 <Route path='/' element={<HomeRouter changeProdValue={changeProdValue} />} />
                 <Route path='/categories' element={<Categories />} />
+                <Route path='/about' element={<About />} />
                 <Route path='/categories/:id' element={<Categories />} />
+                <Route path='/likes' element={<FavouriteProducts changeProdValue={changeProdValue} />} />
                 <Route path='/products' element={<Products changeProdValue={changeProdValue} />} />
+                <Route path='/sub-categories/:id' element={<Products changeProdValue={changeProdValue} />} />
                 <Route path='/products/:id' element={<ProductItem changeProdValue={changeProdValue} />} />
                 <Route path='/news/:id' element={<News />} />
               </Routes>

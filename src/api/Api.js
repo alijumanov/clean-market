@@ -1,7 +1,6 @@
-import ProdImg from '../assets/images/prod.png';
-import CategImg from '../assets/images/category.png';
 import axios from 'axios';
-import { CATEGORIES_URL } from './ApiUrl';
+import ProdImg from '../assets/images/prod.png';
+import { CATEGORIES_URL, FAQ_URL, NEWS_URL, PRODUCTS_URL, SUB_CATEGORIES_URL, TOP_PRODUCTS_URL } from './ApiUrl';
 
 export const dataTopProducts = [
     { id: 1, image: ProdImg, new: true, percent: null, recommend: false, name: "Any submit desc", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
@@ -20,13 +19,38 @@ export const fetchCategories = () => {
     return axios.get(CATEGORIES_URL)
 };
 
-export const dataCategories = [
-    { id: 1, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 2, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 3, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 4, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 5, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 6, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 7, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-    { id: 8, image: CategImg, name: "Поломоичные Машины", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
-];
+// API of SubCategories
+
+export const fetchSubCategories = () => {
+    return axios.get(SUB_CATEGORIES_URL)
+};
+
+// API of Products
+
+export const fetchProducts = () => {
+    return axios.get(PRODUCTS_URL)
+};
+
+// API of TopProducts
+
+export const fetchTopProducts = () => {
+    return axios.get(TOP_PRODUCTS_URL)
+};
+
+// API of ProductItem
+
+export const fetchProductItem = (filter) => {
+    return axios.get(`${PRODUCTS_URL}/${filter}`)
+};
+
+// API of News
+
+export const fetchNews = () => {
+    return axios.get(NEWS_URL)
+};
+
+// API of Faq
+
+export const fetchFaq = () => {
+    return axios.get(FAQ_URL)
+};

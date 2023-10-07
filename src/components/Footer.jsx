@@ -6,7 +6,7 @@ import EmailIcon from '../assets/icons/email.svg';
 import LocIcon from '../assets/icons/location1.svg';
 import Facebook from '../assets/icons/facebook2.svg';
 import Telegram from '../assets/icons/telegram1.svg';
-import Instagram from '../assets/icons/instagram.svg';
+import Instagram from '../assets/icons/instagram2.svg';
 
 const Footer = () => {
     return (
@@ -25,16 +25,16 @@ const Footer = () => {
                         <p className="min-text">Info@cleanmarket.uz</p>
                     </a>
                     <div className="socials gap-1-5 mtop-1">
-                        <a href="#" target={"_blank"} className="icon">
+                        <a href="#" target={"_blank"} className="icon scale-1">
                             <img src={Instagram} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon">
+                        <a href="#" target={"_blank"} className="icon scale-1">
                             <img src={Facebook} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon">
+                        <a href="#" target={"_blank"} className="icon scale-1">
                             <img src={Youtube} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon">
+                        <a href="#" target={"_blank"} className="icon scale-1">
                             <img src={Telegram} alt="icn" className="icn" />
                         </a>
                     </div>

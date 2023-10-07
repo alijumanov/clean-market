@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Navbar.scss';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import Bar from '../assets/icons/bar.svg';
 import { useSelector } from 'react-redux';
@@ -8,13 +9,13 @@ import Logo from '../assets/images/logo.png';
 import Heart from '../assets/icons/heart1.png';
 import { useTranslation } from 'react-i18next';
 import Search from '../assets/icons/search.svg';
-import { changeLang } from '../languages/language';
 import Telegram from '../assets/icons/telegram.svg';
 import Location from '../assets/icons/location.svg';
 import Instagram from '../assets/icons/instagram.svg';
-import { dataCategories, dataTopProducts } from '../api/Api';
+import { changeLang, getName } from '../languages/language';
+import { fetchCategories, fetchProducts, fetchSubCategories } from '../api/Api';
 
-const Navbar = () => {
+const Navbar = ({ changeProdValue }) => {
 
     // language options
 
@@ -53,11 +54,23 @@ const Navbar = () => {
 
     let savedProducts = useSelector((state) => state.savedProducts.products);
 
+    // API options
+
+    const [inputValue, setInputValue] = useState("");
+
+    const dataProducts = useQuery('products', fetchProducts);
+    const dataCategories = useQuery('categories', fetchCategories);
+    const dataSubCategories = useQuery('sub-categories', fetchSubCategories);
+
+    const dataProds = dataProducts?.data?.data?.filter(c => getName(c)?.toLowerCase().includes(inputValue.toLowerCase()));
+    const dataCategs = dataCategories?.data?.data?.filter(c => getName(c)?.toLowerCase().includes(inputValue.toLowerCase()));
+    const dataSubCategs = dataSubCategories?.data?.data?.filter(c => getName(c)?.toLowerCase().includes(inputValue.toLowerCase()));
+
     return (
         <div className={`Navbar ${scroll && "HideNavbar"}`}>
             <div className="top_navbar">
                 <p className="text desc">Clean Market dan siz uchun maxsus - 10% Chegirma</p>
-                <button className="bonus_btn round-05 text scale-05">Bonusni olish</button>
+                <button className="bonus_btn round-05 text scale-05" onClick={() => changeProdValue("1")}>Bonusni olish</button>
             </div>
             <div className="middle_navbar">
                 <div className="left gap-05">
@@ -101,8 +114,8 @@ const Navbar = () => {
                     <button className="catalog_btn round-05 gap-05 op-07" onClick={() => setShowCatalog(true)}><img src={Bar} alt="icn" className='icn' /> <p className="text">Katalog</p></button>
                     {showCatalog &&
                         <div className="catalog_bar round-07">
-                            {dataCategories?.map((item) => (
-                                <Link key={item?.id} to={`/categories/${item?.id}`} className="bar_link text" onClick={() => setShowCatalog(false)}>{item?.name}</Link>
+                            {dataCategories?.data?.data?.map((item) => (
+                                <Link key={item?.id} to={`/categories/${item?.id}`} className="bar_link text" onClick={() => setShowCatalog(false)}>{getName(item)}</Link>
                             ))}
                         </div>
                     }
@@ -110,23 +123,24 @@ const Navbar = () => {
                         <div className="contrast-0" onClick={() => setShowCatalog(false)}></div>
                     }
                 </div>
-                <Link to="/likes" className="link ver_1 gap-05">
-                    <span>{savedProducts?.length}</span>
-                    <img src={Heart} alt="icn" className="icn" />
-                    <p className="min-text">Sevimlilar</p>
+                <Link to="/about" className="link ver_1 gap-05">
+                    <p className="min-text">Biz haqimizda</p>
                 </Link>
                 <div className="searching">
-                    <input type="text" id='search' className="input pd-07 min-text round-05" placeholder='Qidiruv...' onClick={() => setShowSearch(true)} />
+                    <input type="text" id='search' className="input pd-07 min-text round-05" placeholder='Qidiruv...' onClick={() => setShowSearch(true)} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                     <label htmlFor='search' className="icon round-05">
                         <img src={Search} alt="icn" className="icn" />
                     </label>
                     {showSearch &&
                         <div className="search_bar round-07">
-                            {dataCategories?.map((item) => (
-                                <Link key={item?.id} to={`/categories/${item?.id}`} className="bar_link text" onClick={() => setShowSearch(false)}>{item?.name}</Link>
+                            {dataCategs?.map((item) => (
+                                <Link key={item?.id} to={`/categories/${item?.id}`} className="bar_link text" onClick={() => setShowSearch(false)}>{getName(item)}</Link>
                             ))}
-                            {dataTopProducts?.map((item) => (
-                                <Link key={item?.id} to={`/products/${item?.id}`} className="bar_link text" onClick={() => setShowSearch(false)}>{item?.name}</Link>
+                            {dataSubCategs?.map((item) => (
+                                <Link key={item?.id} to={`/sub-categories/${item?.id}`} className="bar_link text" onClick={() => setShowSearch(false)}>{getName(item)}</Link>
+                            ))}
+                            {dataProds?.map((item) => (
+                                <Link key={item?.id} to={`/products/${item?.id}`} className="bar_link text" onClick={() => setShowSearch(false)}>{getName(item)}</Link>
                             ))}
                         </div>
                     }
@@ -134,6 +148,14 @@ const Navbar = () => {
                         <div className="contrast-0" onClick={() => setShowSearch(false)}></div>
                     }
                 </div>
+                <Link to="/likes" className="link ver_1 gap-05">
+                    <span>{savedProducts?.length}</span>
+                    <img src={Heart} alt="icn" className="icn" />
+                    <p className="min-text">Sevimlilar</p>
+                </Link>
+                <Link to="/about" className="link ver_2 gap-05">
+                    <p className="min-text">Biz haqimizda</p>
+                </Link>
                 <Link to="/likes" className="link ver_2 gap-05">
                     <span>{savedProducts?.length}</span>
                     <img src={Heart} alt="icn" className="icn" />

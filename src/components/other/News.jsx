@@ -1,83 +1,64 @@
 import React from 'react';
-import '../../styles/other/News.scss';
 import "swiper/css";
-import { Link } from 'react-router-dom';
+import '../../styles/other/News.scss';
+import { useQuery } from 'react-query';
 import { Autoplay } from 'swiper/modules';
-import Img from '../../assets/images/new.png';
-import NewsImg from '../../assets/images/news.png';
+import { fetchNews } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, useParams } from 'react-router-dom';
 
 const News = () => {
+
+    // router options
+
+    const { id } = useParams();
+
+    // API options
+
+    const dataNews = useQuery('news', fetchNews);
+
+    // i18next
+
+    let lang = localStorage.getItem('i18nextLng');
+
     return (
         <div className='News parent'>
-            <div className="wrapper gap-2">
-                <h1 className="sub-title">Yangilik nomi zagolovka</h1>
-                <img src={NewsImg} alt="news_img" className="img round-1-5" />
-                <p className="text desc">Yangilik chiqqan vaqti:</p>
-                <p className="big-text"><b>21.05.2023</b></p>
-                <p className="text desc">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.simply dummy text of the printing and typesetting industry. </p>
-                <p className="big-text"><b>Boshqa yangiliklar</b></p>
-                <Swiper
-                    slidesPerView={2}
-                    spaceBetween={10}
-                    loop={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                    breakpoints={{
-                        768: {
-                            slidesPerView: 4,
-                            spaceBetween: 30,
-                        }
-                    }}
-                >
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                    <SwiperSlide className="new_card gap-1 pd-05 round-1">
-                        <img src={Img} alt="img" className="img round-07" />
-                        <p className="name min-text">What should be the arrangement of furniture in the bathroom?</p>
-                        <p className="desc min-text">As an effort to keep polishing our services for a more satisfactory customer experience, we </p>
-                        <Link className="link min-text">Read more</Link>
-                    </SwiperSlide>
-                </Swiper>
-            </div>
+            {dataNews?.data?.data?.filter((c) => c?.id == id)?.map((item) => (
+                <div key={item?.id} className="wrapper gap-2">
+                    <h1 className="sub-title">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
+                    <img src={item?.image1} alt="news_img" className="img round-1-5" />
+                    <p className="text desc">Yangilik chiqqan vaqti:</p>
+                    <p className="big-text"><b>21.05.2023</b></p>
+                    <p className="text desc">{lang == 'uz' ? item?.description_uz : lang == 'ru' ? item?.description_ru : item?.description_en}</p>
+                    <p className="big-text"><b>Boshqa yangiliklar</b></p>
+                    <Swiper
+                        slidesPerView={2}
+                        spaceBetween={10}
+                        loop={true}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
+                        modules={[Autoplay]}
+                        className="mySwiper"
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                            }
+                        }}
+                    >
+                        {dataNews?.data?.data?.filter((k) => k?.id != id)?.map((j) => (
+                            <SwiperSlide key={j?.id} className="new_card gap-1 pd-05 round-1">
+                                <img src={j?.image1} alt="img" className="img round-07" />
+                                <p className="name min-text">{lang == 'uz' ? j?.name_uz : lang == 'ru' ? j?.name_ru : j?.name_en}</p>
+                                <p className="desc min-text">{lang == 'uz' ? j?.description_uz : lang == 'ru' ? j?.description_ru : j?.description_en}</p>
+                                <Link to={`/news/${j?.id}`} className="link min-text">Read more</Link>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            ))}
         </div>
     );
 };

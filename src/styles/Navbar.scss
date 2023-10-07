@@ -15,7 +15,7 @@
         display: flex;
         padding: 0.8vw 10vw;
         align-items: center;
-        background-color: #0B8297;
+        background-color: #086e81;
         justify-content: space-between;
 
         @media (max-width:767px) {
@@ -34,7 +34,7 @@
         .bonus_btn {
             border: none;
             font-weight: 600;
-            color: #0B8297;
+            color: #086e81;
             padding: 0.7vw 1.3vw;
             background-color: white;
 
@@ -107,7 +107,7 @@
             }
 
             .tel {
-                color: #0B8297;
+                color: #086e81;
                 font-weight: 600;
             }
 
@@ -139,8 +139,8 @@
                     z-index: 10;
                     overflow: hidden;
                     position: absolute;
-                    background-color: #0B8297;
-                    border: solid 1px #0B8297;
+                    background-color: #086e81;
+                    border: solid 1px #086e81;
 
                     @media (max-width:767px) {
                         top: 4vw;
@@ -152,7 +152,7 @@
 
                         &:hover {
                             cursor: pointer;
-                            color: #0B8297;
+                            color: #086e81;
                             background-color: white;
                         }
 
@@ -167,7 +167,7 @@
 
     .bottom_navbar {
         display: flex;
-        padding: 0.8vw 10vw;
+        padding: 0 10vw;
         align-items: center;
         background-color: white;
 
@@ -179,10 +179,10 @@
         }
 
         .logo {
-            width: 5vw;
+            width: 7vw;
 
             @media (max-width:767px) {
-                width: 18vw;
+                width: 20vw;
             }
 
             img {
@@ -202,7 +202,7 @@
                 display: flex;
                 align-items: center;
                 padding: 0.7vw 1.5vw;
-                background-color: #60B0211A;
+                background-color: #086e81;
 
                 @media (max-width:767px) {
                     gap: 4vw;
@@ -210,7 +210,7 @@
                 }
 
                 .text {
-                    color: #0B8297;
+                    color: white;
                 }
 
                 .icn {
@@ -233,7 +233,7 @@
                 max-height: 50vh;
                 position: absolute;
                 flex-direction: column;
-                background-color: #0B8297;
+                background-color: #086e81;
 
                 @media (max-width:767px) {
                     top: 8.5vw;
@@ -245,7 +245,7 @@
                     padding: 0.5vw 1vw;
 
                     &:hover {
-                        color: #0B8297;
+                        color: #086e81;
                         background-color: white;
                     }
 
@@ -263,7 +263,7 @@
             align-items: center;
 
             @media (max-width:767px) {
-                width: 100%;
+                width: 70%;
             }
 
             .input {
@@ -290,7 +290,7 @@
                 justify-content: center;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
-                background-color: #60B0211A;
+                background-color: #086e81;
 
                 .icn {
                     max-width: 1.2vw;
@@ -312,7 +312,7 @@
                 max-height: 50vh;
                 position: absolute;
                 flex-direction: column;
-                background-color: #0B8297;
+                background-color: #086e81;
 
                 @media (max-width:767px) {
                     top: 9vw;
@@ -324,7 +324,7 @@
                     padding: 0.5vw 1vw;
 
                     &:hover {
-                        color: #0B8297;
+                        color: #086e81;
                         background-color: white;
                     }
 
@@ -372,7 +372,7 @@
                 -o-border-radius: 50%;
                 align-items: center;
                 justify-content: center;
-                background-color: #0B8297;
+                background-color: #086e81;
                 font-family: 'Montserrat', sans-serif;
 
                 @media (max-width:767px) {
@@ -406,10 +406,16 @@
     -moz-transition: 0.2s linear;
     -ms-transition: 0.2s linear;
     -o-transition: 0.2s linear;
-    border-bottom: solid 1px rgb(214, 214, 214);
+
+    .bottom_navbar {
+        border-bottom: solid 1px rgb(214, 214, 214);
+
+        @media (max-width:767px) {
+            border-bottom: solid 1px rgb(214, 214, 214);
+        }
+    }
 
     @media (max-width:767px) {
         top: -18vw;
-        border-bottom: solid 1px rgb(214, 214, 214);
     }
 }
