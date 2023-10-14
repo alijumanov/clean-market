@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Products {
     .wrapper {
         display: flex;
@@ -47,7 +51,7 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                background-color: #086e81;
+                background-color: $primary;
 
                 .text {
                     width: 100%;
@@ -157,6 +161,7 @@
 
                     .desc {
                         opacity: 0.6;
+                        font-weight: 700;
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;
@@ -172,6 +177,7 @@
                         justify-content: space-between;
 
                         .btn {
+                            width: 100%;
                             border: none;
                             font-weight: 600;
                             padding-top: 0.5vw;

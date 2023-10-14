@@ -8,6 +8,7 @@ import HomeRouter from "./routes/HomeRouter";
 import Modal from './components/modals/Modal';
 import { persistor, store } from './redux/store';
 import Products from './components/other/Products';
+import ScrollToTop from './components/ScrollToTop';
 import Categories from './components/other/Categories';
 import ProductItem from './components/other/ProductItem';
 import ContactModal from './components/modals/ContactModal';
@@ -50,6 +51,7 @@ const App = () => {
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <BrowserRouter>
+              <ScrollToTop />
               <Navbar changeProdValue={changeProdValue} />
               <Routes>
                 <Route path='/' element={<HomeRouter changeProdValue={changeProdValue} />} />

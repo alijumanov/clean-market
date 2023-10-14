@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Partners {
     .wrapper {
         display: flex;
@@ -16,7 +20,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #086e81;
+                background-color: $primary;
 
                 @media (max-width:767px) {
                     height: 20vw;

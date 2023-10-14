@@ -70,6 +70,9 @@ const ProductItem = ({ changeProdValue }) => {
                         <div className="middle gap-1">
                             <p className="text">MAXSULOT XARAKTERISTIKASI</p>
                             <p className="desc min-text">{lang == 'uz' ? dataProductItem?.data?.data?.description_uz : lang == 'ru' ? dataProductItem?.data?.data?.description_ru : dataProductItem?.data?.data?.description_en}</p>
+                            {/* {dataProductItem?.data?.data?.description_uz?.split(",")?.map((c) => (
+                                <p className="desc min-text">{c}</p>
+                            ))} */}
                         </div>
                         <div className="right gap-1">
                             <p className="big-text">{dataProductItem?.data?.data?.price} So’m</p>

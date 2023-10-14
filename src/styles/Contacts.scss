@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Contacts {
     .wrapper {
         display: flex;
@@ -35,7 +39,7 @@
                         color: white;
                         font-weight: 600;
                         padding: 1vw 1.5vw;
-                        background-color: #086e81;
+                        background-color: $primary;
 
                         @media (max-width:767px) {
                             padding: 3vw 4.5vw;
@@ -95,7 +99,7 @@
                 border: none;
                 color: white;
                 font-weight: 600;
-                background-color: #086e81;
+                background-color: $primary;
             }
         }
     }

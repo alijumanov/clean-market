@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .News {
     .wrapper {
         display: flex;
@@ -54,7 +58,7 @@
                 }
 
                 .link {
-                    color: #086e81;
+                    color: $primary;
                     font-weight: 600;
                     text-decoration: underline;
                 }

@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .ContactModal {
     top: 0;
     left: 0;
@@ -51,7 +55,7 @@
             right: 1vw;
             width: 1vw;
             height: 1vw;
-            fill: black;
+            fill: $primary;
             cursor: pointer;
             position: absolute;
 
@@ -124,7 +128,7 @@
             -ms-border-radius: 1vw;
             -o-border-radius: 1vw;
             width: calc(50% - 1vw);
-            background-color: black;
+            background-color: $primary;
             font-family: 'Inter', sans-serif;
 
             @media (max-width:767px) {

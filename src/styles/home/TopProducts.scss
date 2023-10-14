@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .TopProducts {
     .wrapper {
         display: flex;
@@ -10,7 +14,7 @@
             justify-content: space-between;
 
             .text {
-                color: #086e81;
+                color: $primary;
                 text-decoration: underline;
             }
         }
@@ -87,6 +91,7 @@
                 .desc {
                     opacity: 0.6;
                     overflow: hidden;
+                    font-weight: 700;
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
@@ -101,6 +106,7 @@
                     justify-content: space-between;
 
                     .btn {
+                        width: 100%;
                         border: none;
                         font-weight: 600;
                         padding-top: 0.5vw;

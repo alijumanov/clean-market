@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Infographics {
     .wrapper {
         display: flex;
@@ -27,7 +31,7 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: center;
-                border: solid 1px #086e81;
+                border: solid 1px $primary;
 
                 &:hover {
                     .child {
@@ -59,7 +63,7 @@
 
                 .title {
                     font-weight: 400;
-                    color: #086e81;
+                    color: $primary;
                     text-align: center;
                 }
 
@@ -89,7 +93,7 @@
                     flex-direction: column;
                     justify-content: center;
                     background-color: white;
-                    border: solid 1px #086e81;
+                    border: solid 1px $primary;
                     transform: translate(0%, 0%);
                     -webkit-transform: translate(0%, 0%);
                     -moz-transform: translate(0%, 0%);
@@ -108,7 +112,7 @@
                     }
 
                     .name {
-                        color: #086e81;
+                        color: $primary;
                         text-align: center;
                     }
 

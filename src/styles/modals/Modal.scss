@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Modal {
     top: 25%;
     left: 25%;
@@ -12,7 +16,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: black;
+    background-color: $primary;
 
     @media(max-width:800px) {
         top: 35%;
@@ -55,7 +59,7 @@
         outline: none;
         margin-top: 2%;
         cursor: pointer;
-        color: black;
+        color: $primary;
         font-weight: 700;
         font-size: 1.5vw;
         padding: 10px 50px;

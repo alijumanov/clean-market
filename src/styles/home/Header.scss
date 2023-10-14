@@ -1,16 +1,19 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Header {
     .wrapper {
         display: flex;
         padding-left: 0;
         padding-right: 0;
-        padding-top: 12vw;
-        min-height: 100vh;
+        padding-top: 14vw;
+        padding-bottom: 2vw;
         align-items: center;
         justify-content: center;
 
         @media (max-width:767px) {
-            min-height: 400px;
-            padding-top: 45vw;
+            padding-top: 44vw;
         }
 
         .mySwiper {
@@ -19,6 +22,12 @@
 
             @media (max-width:767px) {
                 padding-bottom: 8vw;
+            }
+
+            .swiper-pagination {
+                .swiper-pagination-bullet-active {
+                    background-color: $primary;
+                }
             }
 
             .lenta {

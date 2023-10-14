@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .HomeCategories {
     .wrapper {
         display: flex;
@@ -10,7 +14,7 @@
             justify-content: space-between;
 
             .text {
-                color: #086e81;
+                color: $primary;
                 text-decoration: underline;
             }
         }

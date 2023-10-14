@@ -5,7 +5,6 @@ import { fetchProducts } from '../../api/Api';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import '../../styles/other/FavouriteProducts.scss';
-import Exchange from '../../assets/icons/exchange.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductsSaved } from '../../redux/actions/planActions';
 
@@ -53,7 +52,7 @@ const FavouriteProducts = ({ changeProdValue }) => {
                                         <img src={Heart} alt="icn" className='icn' />
                                     }
                                 </button>
-                                <Link to={`/products/${item?.id}`}>
+                                <Link to={`/products/${item?.slug}`}>
                                     <img src={item?.image1} alt="img" className="img" />
                                 </Link>
                             </div>
@@ -61,7 +60,6 @@ const FavouriteProducts = ({ changeProdValue }) => {
                             <p className="text price">{item?.price}  сум</p>
                             <div className="btns gap-1">
                                 <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item.name)}>Xarid qilish</button>
-                                <Link to={`/products/${item?.id}`} className="btn text round-05 op-07 pd-07"><img src={Exchange} alt="icn" className="icn" /></Link>
                             </div>
                         </div>
                     ))}

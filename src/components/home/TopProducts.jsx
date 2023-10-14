@@ -8,9 +8,7 @@ import { fetchTopProducts } from '../../api/Api';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getName } from '../../languages/language';
 import { Autoplay, Navigation } from 'swiper/modules';
-import Exchange from '../../assets/icons/exchange.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductsSaved } from '../../redux/actions/planActions';
 
@@ -28,6 +26,10 @@ const TopProducts = ({ changeProdValue }) => {
     // API options
 
     const dataTopProducts = useQuery('products', fetchTopProducts);
+
+    // i18next
+
+    let lang = localStorage.getItem('i18nextLng');
 
     return (
         <div className='TopProducts parent'>
@@ -73,15 +75,14 @@ const TopProducts = ({ changeProdValue }) => {
                                         <img src={Heart} alt="icn" className='icn' />
                                     }
                                 </button>
-                                <Link to={`/products/${item?.id}`}>
+                                <Link to={`/products/${item?.slug}`}>
                                     <img src={item?.image1} alt="img" className="img" />
                                 </Link>
                             </div>
-                            <p className="min-text desc">{getName(item)}</p>
+                            <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
                             <p className="text price">{item?.price}  сум</p>
                             <div className="btns gap-1">
                                 <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>Xarid qilish</button>
-                                <Link to={`/products/${item?.id}`} className="btn text round-05 op-07 pd-07"><img src={Exchange} alt="icn" className="icn" /></Link>
                             </div>
                         </SwiperSlide>
                     ))}

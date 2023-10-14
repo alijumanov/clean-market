@@ -1,5 +1,9 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .Footer {
-    background-color: #086e81;
+    background-color: $primary;
 
     .wrapper {
         display: flex;

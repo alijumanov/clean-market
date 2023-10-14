@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .ProductItem {
     .wrapper {
         display: flex;
@@ -109,7 +113,7 @@
                 .buy_btn {
                     border: none;
                     color: white;
-                    background-color: #086e81;
+                    background-color: $primary;
                 }
             }
         }

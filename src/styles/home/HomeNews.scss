@@ -1,3 +1,7 @@
+// $primary: #086e81;
+// $primary: #00205B;
+$primary: #0095E9;
+
 .HomeNews {
     .wrapper {
         display: flex;
@@ -10,7 +14,7 @@
             justify-content: space-between;
 
             .text {
-                color: #086e81;
+                color: $primary;
                 text-decoration: underline;
             }
         }
@@ -56,7 +60,7 @@
                     align-items: center;
 
                     .actual {
-                        color: #086e81;
+                        color: $primary;
                         padding: 0.5vw 1vw;
                         border-radius: 50px;
                         -webkit-border-radius: 50px;
@@ -101,7 +105,7 @@
                 }
 
                 .link {
-                    color: #086e81;
+                    color: $primary;
                     font-weight: 600;
                     text-decoration: underline;
                 }
@@ -144,7 +148,7 @@
                 }
 
                 .link {
-                    color: #086e81;
+                    color: $primary;
                     font-weight: 600;
                     text-decoration: underline;
                 }
