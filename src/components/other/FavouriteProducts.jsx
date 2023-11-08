@@ -1,14 +1,19 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { DOMEN_URL } from '../../api/ApiUrl';
 import { fetchProducts } from '../../api/Api';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import '../../styles/other/FavouriteProducts.scss';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductsSaved } from '../../redux/actions/planActions';
 
 const FavouriteProducts = ({ changeProdValue }) => {
+
+    // router options
+
+    const path = useLocation();
 
     // redux options
 
@@ -21,7 +26,7 @@ const FavouriteProducts = ({ changeProdValue }) => {
 
     // API options
 
-    const dataProducts = useQuery('products', fetchProducts);
+    const dataProducts = useQuery(['products', path.search], () => fetchProducts(path.search));
 
     // i18next
 
@@ -32,7 +37,7 @@ const FavouriteProducts = ({ changeProdValue }) => {
             <div className="wrapper">
                 <h1 className="sub-title">Sevimli mahsulotlar</h1>
                 <div className="cards gap-1-5">
-                    {dataProducts?.data?.data?.map((item) => (
+                    {dataProducts?.data?.data?.results?.map((item) => (
                         savedProducts?.includes(item.id) &&
                         <div key={item?.id} className="product gap-1 pd-05 round-1">
                             <div className="imgs round-07 pd-1 gap-05">
@@ -53,7 +58,7 @@ const FavouriteProducts = ({ changeProdValue }) => {
                                     }
                                 </button>
                                 <Link to={`/products/${item?.slug}`}>
-                                    <img src={item?.image1} alt="img" className="img" />
+                                    <img src={`${DOMEN_URL}${item?.image1}`} alt="img" className="img" />
                                 </Link>
                             </div>
                             <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>

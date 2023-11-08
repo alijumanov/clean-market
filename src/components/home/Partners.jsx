@@ -1,14 +1,18 @@
 import React from 'react';
 import "swiper/css";
 import "swiper/css/navigation";
+import { useQuery } from 'react-query';
 import '../../styles/home/Partners.scss';
+import { fetchPartner } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
-import Img1 from '../../assets/images/partner1.png';
-import Img2 from '../../assets/images/partner2.png';
-import Img3 from '../../assets/images/partner3.png';
 import { Autoplay, Navigation } from 'swiper/modules';
 
 const Partners = () => {
+
+    // API options
+
+    const dataPartners = useQuery('partners', fetchPartner);
+
     return (
         <div className='Partners parent'>
             <div className="wrapper gap-2">
@@ -31,33 +35,11 @@ const Partners = () => {
                         }
                     }}
                 >
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img1} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img2} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img3} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img1} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img2} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img3} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img1} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img2} alt="img" className="img" />
-                    </SwiperSlide>
-                    <SwiperSlide className="partner round-1-5 pd-2">
-                        <img src={Img3} alt="img" className="img" />
-                    </SwiperSlide>
+                    {dataPartners?.data?.data?.map((item) => (
+                        <SwiperSlide key={item?.id} className="partner round-1-5 pd-2">
+                            <img src={item?.image} alt="img" className="img" />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </div>

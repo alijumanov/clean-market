@@ -25,7 +25,7 @@ const TopProducts = ({ changeProdValue }) => {
 
     // API options
 
-    const dataTopProducts = useQuery('products', fetchTopProducts);
+    const dataTopProducts = useQuery('top-products', fetchTopProducts);
 
     // i18next
 

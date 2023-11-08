@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import "swiper/css";
 import "swiper/css/navigation";
 import { useQuery } from 'react-query';
@@ -23,6 +23,14 @@ const ProductItem = ({ changeProdValue }) => {
 
     let lang = localStorage.getItem('i18nextLng');
 
+    // image options
+
+    const [imageValue, setImageValue] = useState("");
+
+    useMemo(() => {
+        setImageValue(dataProductItem?.data?.data?.image1)
+    }, [dataProductItem?.isLoading]);
+
     return (
         <>
             <div className="ProductItem parent">
@@ -31,7 +39,7 @@ const ProductItem = ({ changeProdValue }) => {
                     <div className="infos gap-3">
                         <div className="left gap-1">
                             <div className="main_img">
-                                <img src={dataProductItem?.data?.data?.image1} alt="img" className='img round-1' />
+                                <img src={imageValue} alt="img" className='img round-1' />
                             </div>
                             <Swiper
                                 slidesPerView={3}
@@ -47,32 +55,31 @@ const ProductItem = ({ changeProdValue }) => {
                                     }
                                 }}
                             >
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image1)}>
                                     <img src={dataProductItem?.data?.data?.image1} alt="img" className="img round-07" />
                                 </SwiperSlide>
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image2)}>
                                     <img src={dataProductItem?.data?.data?.image2} alt="img" className="img round-07" />
                                 </SwiperSlide>
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image3)}>
                                     <img src={dataProductItem?.data?.data?.image3} alt="img" className="img round-07" />
                                 </SwiperSlide>
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image4)}>
                                     <img src={dataProductItem?.data?.data?.image4} alt="img" className="img round-07" />
                                 </SwiperSlide>
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image5)}>
                                     <img src={dataProductItem?.data?.data?.image5} alt="img" className="img round-07" />
                                 </SwiperSlide>
-                                <SwiperSlide className="img_card">
+                                <SwiperSlide className="img_card" onClick={() => setImageValue(dataProductItem?.data?.data?.image6)}>
                                     <img src={dataProductItem?.data?.data?.image6} alt="img" className="img round-07" />
                                 </SwiperSlide>
                             </Swiper>
                         </div>
                         <div className="middle gap-1">
                             <p className="text">MAXSULOT XARAKTERISTIKASI</p>
-                            <p className="desc min-text">{lang == 'uz' ? dataProductItem?.data?.data?.description_uz : lang == 'ru' ? dataProductItem?.data?.data?.description_ru : dataProductItem?.data?.data?.description_en}</p>
-                            {/* {dataProductItem?.data?.data?.description_uz?.split(",")?.map((c) => (
-                                <p className="desc min-text">{c}</p>
-                            ))} */}
+                            {dataProductItem?.data?.data?.description_uz?.split(";")?.map((c) => (
+                                <p key={c} className="desc desc_box min-text round-05 pd-05">{c}</p>
+                            ))}
                         </div>
                         <div className="right gap-1">
                             <p className="big-text">{dataProductItem?.data?.data?.price} So’m</p>
@@ -83,7 +90,7 @@ const ProductItem = ({ changeProdValue }) => {
                         </div>
                     </div>
                     <p className="text">Mahsulot haqida batafsil</p>
-                    <p className="desc min-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p className="desc min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p>
                 </div>
             </div>
             <TopProducts />

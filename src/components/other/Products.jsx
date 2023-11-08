@@ -1,9 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import '../../styles/other/Products.scss';
+import { DOMEN_URL } from '../../api/ApiUrl';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import Icon from '../../assets/icons/category.svg';
+import BottomPagination from '../BottomPagination';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Settings from '../../assets/images/settings.png';
@@ -27,8 +29,8 @@ const Products = ({ changeProdValue }) => {
 
     // API options
 
-    const dataProducts = useQuery('products', fetchProducts);
     const dataSubCategories = useQuery('sub-categories', fetchSubCategories);
+    const dataProducts = useQuery(['products-with', `?subcategory_id=${id}`], () => fetchProducts(`?subcategory_id=${id}`));
 
     // i18next
 
@@ -40,7 +42,7 @@ const Products = ({ changeProdValue }) => {
                 <div className="left gap-1">
                     {id ?
                         dataSubCategories?.data?.data?.filter((c) => c?.id == id)?.map((item) => (
-                            <h1 className="name">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
+                            <h1 key={item?.id} className="name">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
                         ))
                         :
                         <h1 className="name">Barcha Mahsulotlar</h1>
@@ -61,7 +63,7 @@ const Products = ({ changeProdValue }) => {
                 <div className="right gap-2">
                     <h1 className="name">Mahsulotlar</h1>
                     <div className="cards gap-1-5">
-                        {dataProducts?.data?.data?.filter((c) => c.sub_category == id)?.map((item) => (
+                        {dataProducts?.data?.data?.results?.map((item) => (
                             <div key={item?.id} className="product gap-1 pd-05 round-1">
                                 <div className="imgs round-07 pd-1 gap-05">
                                     {item?.new &&
@@ -81,7 +83,7 @@ const Products = ({ changeProdValue }) => {
                                         }
                                     </button>
                                     <Link to={`/products/${item?.slug}`}>
-                                        <img src={item?.image1} alt="img" className="img" />
+                                        <img src={`${DOMEN_URL}${item?.image1}`} alt="img" className="img" />
                                     </Link>
                                 </div>
                                 <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
@@ -92,6 +94,9 @@ const Products = ({ changeProdValue }) => {
                             </div>
                         ))}
                     </div>
+                    {dataProducts?.data?.data?.max_page > 1 &&
+                        <BottomPagination dataLength={dataProducts?.data?.data?.max_page} />
+                    }
                 </div>
             </div>
         </div>

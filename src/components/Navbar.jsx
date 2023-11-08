@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Navbar.scss';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
 import Bar from '../assets/icons/bar.svg';
 import { useSelector } from 'react-redux';
 import Down from '../assets/icons/down.svg';
@@ -14,9 +13,15 @@ import Telegram from '../assets/icons/telegram.svg';
 import Location from '../assets/icons/location.svg';
 import Instagram from '../assets/icons/instagram.svg';
 import { changeLang, getName } from '../languages/language';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { fetchCategories, fetchProducts, fetchSubCategories } from '../api/Api';
 
 const Navbar = ({ changeProdValue }) => {
+
+    // router options
+
+    const path = useLocation();
+    const navigate = useNavigate();
 
     // language options
 
@@ -57,13 +62,16 @@ const Navbar = ({ changeProdValue }) => {
 
     // API options
 
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState(path.search.slice(8));
 
-    const dataProducts = useQuery('products', fetchProducts);
+    function handleSearch(item) {
+        setInputValue(item);
+        navigate(`?search=${item}`);
+    };
+
     const dataCategories = useQuery('categories', fetchCategories);
     const dataSubCategories = useQuery('sub-categories', fetchSubCategories);
-
-    const dataProds = dataProducts?.data?.data?.filter(c => getName(c)?.toLowerCase().includes(inputValue.toLowerCase()));
+    const dataProducts = useQuery(['products', path.search], () => fetchProducts(path.search));
 
     // catalog options
 
@@ -141,13 +149,13 @@ const Navbar = ({ changeProdValue }) => {
                     <p className="min-text"><b>Biz haqimizda</b></p>
                 </Link>
                 <div className="searching">
-                    <input type="text" id='search' className="input pd-07 min-text round-05" placeholder='Qidiruv...' onClick={() => setShowSearch(true)} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                    <input type="text" id='search' className="input pd-07 min-text round-05" placeholder='Qidiruv...' onClick={() => setShowSearch(true)} value={inputValue} onChange={(e) => handleSearch(e.target.value)} />
                     <label htmlFor='search' className="icon round-05">
                         <img src={Search} alt="icn" className="icn" />
                     </label>
                     {showSearch &&
                         <div className="search_bar round-07">
-                            {dataProds?.map((item) => (
+                            {dataProducts?.data?.data?.results?.map((item) => (
                                 <Link key={item?.id} to={`/products/${item?.slug}`} className="bar_link text" onClick={() => setShowSearch(false)}>{getName(item)}</Link>
                             ))}
                         </div>

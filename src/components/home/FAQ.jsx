@@ -10,6 +10,8 @@ const FAQ = () => {
 
     const dataFAQ = useQuery('FAQ', fetchFaq);
 
+    console.log(dataFAQ?.data?.data)
+
     return (
         <div className='FAQ parent'>
             <div className="wrapper gap-2">
