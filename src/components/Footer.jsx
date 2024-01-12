@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/Footer.scss';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import { fetchCategories } from '../api/Api';
 import { useTranslation } from 'react-i18next';
 import Youtube from '../assets/icons/youtube.svg';
 import EmailIcon from '../assets/icons/email.svg';
@@ -8,12 +10,17 @@ import LocIcon from '../assets/icons/location1.svg';
 import Facebook from '../assets/icons/facebook2.svg';
 import Telegram from '../assets/icons/telegram1.svg';
 import Instagram from '../assets/icons/instagram2.svg';
+import { getName } from '../languages/language';
 
 const Footer = () => {
 
     // i18next
 
     const { t } = useTranslation();
+
+    // API options
+
+    const dataCategories = useQuery('categories', fetchCategories);
 
     return (
         <div className='Footer parent'>
@@ -47,10 +54,9 @@ const Footer = () => {
                 </div>
                 <div className="tool gap-1 mbot-2">
                     <Link className='text'>{t("products")}</Link>
-                    <Link className="min-text">{t("category1")}</Link>
-                    <Link className="min-text">{t("category2")}</Link>
-                    <Link className="min-text">{t("category3")}</Link>
-                    <Link className="min-text">{t("category4")}</Link>
+                    {dataCategories?.data?.data?.slice(0, 4)?.map((item) => (
+                        <Link key={item?.id} className="min-text">{getName(item)}</Link>
+                    ))}
                 </div>
                 <div className="tool gap-1 mbot-2">
                     <Link className='text'>{t("infooo")}</Link>
