@@ -6,6 +6,7 @@ import { Navigation } from 'swiper/modules';
 import '../../styles/other/ProductItem.scss';
 import { useParams } from 'react-router-dom';
 import TopProducts from '../home/TopProducts';
+import { useTranslation } from 'react-i18next';
 import { fetchProductItem } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -21,6 +22,7 @@ const ProductItem = ({ changeProdValue }) => {
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
 
     // image options
@@ -76,21 +78,21 @@ const ProductItem = ({ changeProdValue }) => {
                             </Swiper>
                         </div>
                         <div className="middle gap-1">
-                            <p className="text">MAXSULOT XARAKTERISTIKASI</p>
-                            {dataProductItem?.data?.data?.description_uz?.split(";")?.map((c) => (
-                                <p key={c} className="desc desc_box min-text round-05 pd-05">{c}</p>
-                            ))}
+                            <p className="text">{t("characters")}</p>
+                            <p className="desc min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p>
                         </div>
                         <div className="right gap-1">
-                            <p className="big-text">{dataProductItem?.data?.data?.price} So’m</p>
-                            <p className="text desc">O’rnatib berish</p>
-                            <p className="text desc">Yetkazib  berish</p>
-                            <p className="text desc">Service xizmati</p>
-                            <button className='buy_btn round-1 pd-1 text op-07 mtop-1-5' onClick={() => changeProdValue(dataProductItem?.data?.data?.name_uz)}>Hoziroq xarid qilish</button>
+                            <p className="big-text">{dataProductItem?.data?.data?.price} {t("sum")}</p>
+                            <p className="text desc">{t("desc_buy")}</p>
+                            <button className='buy_btn round-1 pd-1 text op-07 mtop-1-5' onClick={() => changeProdValue(dataProductItem?.data?.data?.name_uz)}>{t("buynow")}</button>
                         </div>
                     </div>
-                    <p className="text">Mahsulot haqida batafsil</p>
-                    <p className="desc min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p>
+                    <p className="text">{t("description_product")}</p>
+                    <div className="middle gap-1">
+                        {dataProductItem?.data?.data?.description_uz?.split(";")?.map((c) => (
+                            <p key={c} className="desc desc_box min-text round-05 pd-05">{c}</p>
+                        ))}
+                    </div>
                 </div>
             </div>
             <TopProducts />

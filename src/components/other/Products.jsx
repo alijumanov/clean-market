@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import '../../styles/other/Products.scss';
 import { DOMEN_URL } from '../../api/ApiUrl';
+import { useTranslation } from 'react-i18next';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import Icon from '../../assets/icons/category.svg';
@@ -34,6 +35,7 @@ const Products = ({ changeProdValue }) => {
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
 
     return (
@@ -42,26 +44,30 @@ const Products = ({ changeProdValue }) => {
                 <div className="left gap-1">
                     {id ?
                         dataSubCategories?.data?.data?.filter((c) => c?.id == id)?.map((item) => (
-                            <h1 key={item?.id} className="name">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
+                            <h1 key={item?.id} className="big-text">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
                         ))
                         :
-                        <h1 className="name">Barcha Mahsulotlar</h1>
+                        <h1 className="big-text">{t("productss")}</h1>
                     }
-                    <p className="min-text"><b>под категории</b></p>
-                    {dataSubCategories?.data?.data?.map((item) => (
-                        <Link key={item?.id} to={`/sub-categories/${item?.id}`} className='link'>
+                    <p className="min-text"><b>{t("subs")}</b></p>
+                    {dataSubCategories?.data?.data?.filter((c) => c?.category == parseInt(dataSubCategories?.data?.data?.filter((c) => c?.id == id)[0]?.category))?.map((item) => (
+                        <Link key={item?.id} to={`/sub-categories/${item?.id}`} className={`link pd-05 round-05 ${item?.id == id && "active_link"}`}>
                             <p className="min-text">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
-                            <img src={Icon} alt="icn" className="icn" />
+                            {item?.icon ?
+                                <img src={item?.icon} alt="icn" className="icn" />
+                                :
+                                <img src={Icon} alt="icn" className="icn" />
+                            }
                         </Link>
                     ))}
                     <div className="settings round-1 pd-1-5 mtop-1 gap-1">
-                        <p className="text">Kale bepul service va kafolat xizmati</p>
+                        <p className="text">{t("name_ph")}</p>
                         <img src={Settings} alt="img" className="img" />
-                        <p className="min-text">simply dummy text of the printing and typesetting industry. Lorem Ipsum has </p>
+                        <p className="min-text">{t("desc_ph")}</p>
                     </div>
                 </div>
                 <div className="right gap-2">
-                    <h1 className="name">Mahsulotlar</h1>
+                    <h1 className="name">{t("productss")}</h1>
                     <div className="cards gap-1-5">
                         {dataProducts?.data?.data?.results?.map((item) => (
                             <div key={item?.id} className="product gap-1 pd-05 round-1">
@@ -87,9 +93,9 @@ const Products = ({ changeProdValue }) => {
                                     </Link>
                                 </div>
                                 <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
-                                <p className="text price">{item?.price}  сум</p>
+                                <p className="text price">{item?.price}  {t("sum")}</p>
                                 <div className="btns gap-1">
-                                    <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item.name)}>Xarid qilish</button>
+                                    <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item.name)}>{t("buy")}</button>
                                 </div>
                             </div>
                         ))}

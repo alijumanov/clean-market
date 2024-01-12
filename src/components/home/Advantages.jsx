@@ -3,13 +3,19 @@ import "swiper/css";
 import { Autoplay } from 'swiper/modules';
 import '../../styles/home/Advantages.scss';
 import Img from '../../assets/images/adv.png';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Advantages = () => {
+
+    // i18next
+
+    const { t } = useTranslation();
+
     return (
         <div className='Advantages parent'>
             <div className="wrapper">
-                <h1 className="sub-title">Nega bizni tanlashadi?</h1>
+                <h1 className="sub-title">{t("negabiz")}</h1>
             </div>
             <Swiper
                 slidesPerView={1}

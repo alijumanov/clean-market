@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/home/HomeNews.scss';
 import { Autoplay } from 'swiper/modules';
 import { fetchNews } from '../../api/Api';
+import { useTranslation } from 'react-i18next';
 import EyeIcon from '../../assets/icons/eye.svg';
 import { Swiper, SwiperSlide } from "swiper/react";
 import CalendarIcon from '../../assets/icons/calendar.svg';
@@ -19,14 +20,15 @@ const HomeNews = () => {
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
 
     return (
         <div className='HomeNews parent'>
             <div className="wrapper gap-2">
                 <div className="head">
-                    <h1 className="sub-title">Clean market yangiliklari</h1>
-                    <Link to='/news/1' className="text">Barcha yangiliklar</Link>
+                    <h1 className="sub-title">{t("yangiliklar")}</h1>
+                    <Link to='/news/1' className="text">{t("barchasi")}</Link>
                 </div>
                 {dataNews?.data?.data?.slice(0, 1)?.map((item) => (
                     <div key={item?.id} className="main_card round-1">

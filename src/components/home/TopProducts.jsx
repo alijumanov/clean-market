@@ -4,6 +4,7 @@ import "swiper/css/navigation";
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import '../../styles/home/TopProducts.scss';
+import { useTranslation } from 'react-i18next';
 import { fetchTopProducts } from '../../api/Api';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
@@ -29,14 +30,15 @@ const TopProducts = ({ changeProdValue }) => {
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
 
     return (
         <div className='TopProducts parent'>
             <div className="wrapper gap-2">
                 <div className="head">
-                    <h1 className="sub-title">Top tovarlar</h1>
-                    <Link to='/products' className="text">Barchasi</Link>
+                    <h1 className="sub-title">{t("top")}</h1>
+                    <Link to='/products' className="text">{t("barchasi")}</Link>
                 </div>
                 <Swiper
                     slidesPerView={2}
@@ -80,9 +82,9 @@ const TopProducts = ({ changeProdValue }) => {
                                 </Link>
                             </div>
                             <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
-                            <p className="text price">{item?.price}  сум</p>
+                            <p className="text price">{item?.price}  {t("sum")}</p>
                             <div className="btns gap-1">
-                                <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>Xarid qilish</button>
+                                <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>{t("buy")}</button>
                             </div>
                         </SwiperSlide>
                     ))}

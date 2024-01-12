@@ -21,7 +21,7 @@ $primary: #0095E9;
                 width: 42%;
             }
 
-            .name {
+            .big-text {
                 font-weight: 600;
             }
 
@@ -32,7 +32,7 @@ $primary: #0095E9;
                 justify-content: space-between;
 
                 .min-text {
-                    width: 60%;
+                    width: 70%;
                     color: black;
                 }
 
@@ -45,6 +45,10 @@ $primary: #0095E9;
                         min-width: 4vw;
                     }
                 }
+            }
+
+            .active_link {
+                border: solid 1px $primary;
             }
 
             .settings {
@@ -145,11 +149,11 @@ $primary: #0095E9;
                         }
 
                         .img {
-                            max-width: 80%;
-                            min-width: 80%;
+                            max-width: 100%;
+                            min-width: 100%;
                             max-height: 11vw;
                             min-height: 11vw;
-                            margin-right: 10%;
+                            margin-left: -22%;
                             object-fit: contain;
 
                             @media (max-width:767px) {
@@ -184,6 +188,11 @@ $primary: #0095E9;
                             text-decoration: none;
                             padding-bottom: 0.5vw;
                             background-color: #F5F5F7;
+
+                            &:hover {
+                                color: white;
+                                background-color: $primary;
+                            }
 
                             @media (max-width:767px) {
                                 padding-top: 1.5vw;

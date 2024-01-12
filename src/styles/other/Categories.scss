@@ -47,6 +47,10 @@ $primary: #0095E9;
                 }
             }
 
+            .active_link {
+                border: solid 1px $primary;
+            }
+
             .settings {
                 display: flex;
                 align-items: center;

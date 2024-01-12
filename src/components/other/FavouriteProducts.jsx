@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useQuery } from 'react-query';
-import { DOMEN_URL } from '../../api/ApiUrl';
 import { fetchProducts } from '../../api/Api';
+import { useTranslation } from 'react-i18next';
 import Heart from '../../assets/icons/heart2.png';
 import Heart1 from '../../assets/icons/heart2.svg';
 import '../../styles/other/FavouriteProducts.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { DOMEN_URL, PRODUCTS_ID_URL } from '../../api/ApiUrl';
 import { addProductsSaved } from '../../redux/actions/planActions';
 
 const FavouriteProducts = ({ changeProdValue }) => {
@@ -26,19 +28,32 @@ const FavouriteProducts = ({ changeProdValue }) => {
 
     // API options
 
+    const [favouriteProducts, setFavouriteProducts] = useState([]);
     const dataProducts = useQuery(['products', path.search], () => fetchProducts(path.search));
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
+
+    useEffect(() => {
+        axios.post(PRODUCTS_ID_URL, {
+            "product_ids": savedProducts
+        })
+            .then(function (res) {
+                setFavouriteProducts(res?.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [dataProducts?.isLoading, savedProducts]);
 
     return (
         <div className='FavouriteProducts parent'>
             <div className="wrapper">
-                <h1 className="sub-title">Sevimli mahsulotlar</h1>
+                <h1 className="sub-title">{t("yurakcha")}</h1>
                 <div className="cards gap-1-5">
-                    {dataProducts?.data?.data?.results?.map((item) => (
-                        savedProducts?.includes(item.id) &&
+                    {favouriteProducts?.map((item) => (
                         <div key={item?.id} className="product gap-1 pd-05 round-1">
                             <div className="imgs round-07 pd-1 gap-05">
                                 {item?.new &&

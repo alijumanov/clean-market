@@ -63,9 +63,9 @@ const ContactModal = ({ changeModal, changeContactModal, prodValue }) => {
         <div className="ContactModal">
             <div className="forms">
                 <img src={CloseIcon} className="close-icon" onClick={() => changeContactModal()} />
-                <input type="text" className={`forms-control text ${invalidName && "red-line"}`} value={nameValue} onChange={(e) => changeName(e.target.value)} placeholder={`${t("contact2")}`} />
-                <input type="number" className={`forms-control text ${invalidNumber && "red-line"}`} value={numberValue} onChange={(e) => changeNumber(e.target.value)} placeholder={`${t("contact3")}`} />
-                <button className="send-btn text" onClick={sendMessage}>{t("contact")}</button>
+                <input type="text" className={`forms-control text ${invalidName && "red-line"}`} value={nameValue} onChange={(e) => changeName(e.target.value)} placeholder={`${t("name")}`} />
+                <input type="number" className={`forms-control text ${invalidNumber && "red-line"}`} value={numberValue} onChange={(e) => changeNumber(e.target.value)} placeholder={`${t("phone")}`} />
+                <button className="send-btn text" onClick={sendMessage}>{t("send")}</button>
             </div>
             <div className="contrast-05" onClick={() => changeContactModal()}></div>
         </div>

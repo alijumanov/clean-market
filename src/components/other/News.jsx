@@ -4,6 +4,7 @@ import '../../styles/other/News.scss';
 import { useQuery } from 'react-query';
 import { Autoplay } from 'swiper/modules';
 import { fetchNews } from '../../api/Api';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ const News = () => {
 
     // i18next
 
+    const { t } = useTranslation();
     let lang = localStorage.getItem('i18nextLng');
 
     return (
