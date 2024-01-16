@@ -46,7 +46,39 @@ const HomeCategories = () => {
                         }
                     }}
                 >
-                    {dataCategories?.data?.data?.map((item) => (
+                    {dataCategories?.data?.data?.sort(function (a, b) {
+                        return parseInt(a?.id) - parseInt(b?.id)
+                    })?.map((item) => (
+                        <SwiperSlide key={item?.id}>
+                            <Link to={`/categories/${item?.id}`} className="product gap-1 pd-1 round-1">
+                                <p className="text">{getName(item)}</p>
+                                <img src={item?.image} alt="img" className="img" />
+                                <p className="min-text">{dataSubCategories?.data?.data?.filter((c) => c?.category == item?.id)?.length} {t("pc")}</p>
+                            </Link>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <Swiper
+                    slidesPerView={2}
+                    spaceBetween={10}
+                    loop={true}
+                    navigation={true}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Navigation]}
+                    className="mySwiper"
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 30,
+                        }
+                    }}
+                >
+                    {dataCategories?.data?.data?.sort(function (a, b) {
+                        return parseInt(b?.id) - parseInt(a?.id)
+                    })?.map((item) => (
                         <SwiperSlide key={item?.id}>
                             <Link to={`/categories/${item?.id}`} className="product gap-1 pd-1 round-1">
                                 <p className="text">{getName(item)}</p>

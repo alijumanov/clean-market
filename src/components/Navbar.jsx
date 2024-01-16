@@ -5,7 +5,7 @@ import Bar from '../assets/icons/bar.svg';
 import { DOMEN_URL } from '../api/ApiUrl';
 import { useSelector } from 'react-redux';
 import Down from '../assets/icons/down.svg';
-import Logo from '../assets/images/logo.png';
+import Logo from '../assets/images/logo1.png';
 import Close from '../assets/icons/close.svg';
 import Heart from '../assets/icons/heart1.png';
 import { useTranslation } from 'react-i18next';
@@ -81,7 +81,7 @@ const Navbar = ({ changeProdValue }) => {
 
     // catalog bar options
 
-    const [subCat, setSubCat] = useState(dataSubCategories?.data?.data[0]?.id)
+    const [subCat, setSubCat] = useState("")
     const dataProductsWith = useQuery(['products-with-1', `?subcategory_id=${subCat}`], () => fetchProducts(`?subcategory_id=${subCat}`));
 
     return (
@@ -126,13 +126,13 @@ const Navbar = ({ changeProdValue }) => {
             </div>
             <div className="bottom_navbar gap-2">
                 <Link to="/" onClick={() => window.scrollTo(0, 0)} className="logo">
-                    <img src={Logo} alt="logo" className='mtop-05' />
+                    <img src={Logo} alt="logo" />
                 </Link>
                 <div className="catalog">
                     <button className="catalog_btn round-05 gap-05 op-07" onClick={() => setShowCatalog(true)}><img src={Bar} alt="icn" className='icn' /> <p className="text">{t("cat")}</p></button>
                     {showCatalog &&
                         <div className="catalog_bar pd-2">
-                            <img src={Close} alt="close" className="close_icn" onClick={() => setShowCatalog(false)} />
+                            <img src={Close} alt="close" className="close_icn" onClick={() => [setShowCatalog(false), setSubCat("")]} />
                             <div className="left">
                                 {dataCategories?.data?.data?.map((item) => (
                                     <div key={item?.id} className={`bar_link text gap-05 ${activeCatalog == item?.id && "active_catalog"}`} onClick={() => setActiveCatalog(activeCatalog == item?.id ? null : item?.id)}>
@@ -153,7 +153,7 @@ const Navbar = ({ changeProdValue }) => {
                             </div>
                             <div className="right pd-2 gap-2">
                                 {dataProductsWith?.data?.data?.results?.map((item) => (
-                                    <Link key={item?.id} to={`/products/${item?.slug}`} className="prod gap-05 pd-05 round-05" onClick={() => setShowCatalog(false)}>
+                                    <Link key={item?.id} to={`/products/${item?.slug}`} className="prod gap-05 pd-05 round-05" onClick={() => [setShowCatalog(false), setSubCat("")]}>
                                         <img src={`${DOMEN_URL}${item?.image1}`} alt="img" className="prod_img" />
                                         <p className="text">{getName(item)}</p>
                                     </Link>
@@ -162,7 +162,7 @@ const Navbar = ({ changeProdValue }) => {
                         </div>
                     }
                     {showCatalog &&
-                        <div className="contrast-0" onClick={() => setShowCatalog(false)}></div>
+                        <div className="contrast-0" onClick={() => [setShowCatalog(false), setSubCat("")]}></div>
                     }
                 </div>
                 <Link to="/about" className="link ver_1 gap-05">

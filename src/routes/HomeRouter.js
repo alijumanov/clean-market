@@ -13,8 +13,8 @@ const HomeRouter = ({ changeProdValue }) => {
     return (
         <>
             <Header />
-            <TopProducts changeProdValue={changeProdValue} />
             <HomeCategories />
+            <TopProducts changeProdValue={changeProdValue} />
             <Advantages />
             <Infographics />
             <HomeNews />

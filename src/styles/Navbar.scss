@@ -1,6 +1,7 @@
 // $primary: #086e81;
 // $primary: #00205B;
-$primary: #0095E9;
+// $primary: #0095E9;
+$primary: #3079BD;
 
 .Navbar {
     top: 0;
@@ -184,13 +185,17 @@ $primary: #0095E9;
         }
 
         .logo {
-            width: 15vw;
+            width: 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             @media (max-width:767px) {
-                width: 29vw;
+                width: 25vw;
             }
 
             img {
+                height: auto;
                 max-width: 100%;
                 min-width: 100%;
             }
