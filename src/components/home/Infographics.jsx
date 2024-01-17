@@ -16,34 +16,18 @@ const Infographics = () => {
                     <div className="info gap-1 pd-1">
                         <h1 className="title">40K</h1>
                         <p className="text txt">{t("inf1")}</p>
-                        <div className="child pd-05">
-                            <p className="name">+</p>
-                            <p className="min-text">foreign partners</p>
-                        </div>
                     </div>
                     <div className="info gap-1 pd-1">
                         <h1 className="title">10+</h1>
                         <p className="text txt">{t("inf2")}</p>
-                        <div className="child pd-05">
-                            <p className="name">+</p>
-                            <p className="min-text">foreign partners</p>
-                        </div>
                     </div>
                     <div className="info gap-1 pd-1">
                         <h1 className="title">40K</h1>
                         <p className="text txt">{t("inf3")}</p>
-                        <div className="child pd-05">
-                            <p className="name">+</p>
-                            <p className="min-text">foreign partners</p>
-                        </div>
                     </div>
                     <div className="info gap-1 pd-1">
                         <h1 className="title">40K</h1>
                         <p className="text txt">{t("inf4")}</p>
-                        <div className="child pd-05">
-                            <p className="name">+</p>
-                            <p className="min-text">foreign partners</p>
-                        </div>
                     </div>
                 </div>
                 <p className="text desc">{t("sonlar_text")}</p>

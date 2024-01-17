@@ -37,19 +37,19 @@ const HomeNews = () => {
                         </div>
                         <div className="right pd-1 gap-1">
                             <div className="top gap-2">
-                                <div className="actual min-text pd-05">Actual new</div>
-                                <div className="view gap-05">
+                                <div className="actual min-text pd-05">{t("actual")}</div>
+                                {/* <div className="view gap-05">
                                     <img src={EyeIcon} alt="icn" className="icn" />
                                     <p className="min-text">16.5k views</p>
                                 </div>
                                 <div className="view gap-05">
                                     <img src={CalendarIcon} alt="icn" className="icn" />
                                     <p className="min-text">05.11.2022</p>
-                                </div>
+                                </div> */}
                             </div>
                             <p className="text name">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
                             <p className="desc min-text">{lang == 'uz' ? item?.description_uz : lang == 'ru' ? item?.description_ru : item?.description_en}</p>
-                            <Link to={`/news/${item?.id}`} className="link text">Read more</Link>
+                            <Link to={`/news/${item?.id}`} className="link text">{t("more")}</Link>
                         </div>
                     </div>
                 ))}
@@ -75,7 +75,7 @@ const HomeNews = () => {
                             <img src={item?.image1} alt="img" className="img round-07" />
                             <p className="name min-text">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
                             <p className="desc min-text">{lang == 'uz' ? item?.description_uz : lang == 'ru' ? item?.description_ru : item?.description_en}</p>
-                            <Link to={`/news/${item?.id}`} className="link min-text">Read more</Link>
+                            <Link to={`/news/${item?.id}`} className="link min-text">{t("more")}</Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>

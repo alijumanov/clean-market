@@ -1,6 +1,6 @@
 import axios from 'axios';
 import ProdImg from '../assets/images/prod.png';
-import { CATEGORIES_URL, FAQ_URL, NEWS_URL, PARTNERS_URL, PRODUCTS_URL, SUB_CATEGORIES_URL, TOP_PRODUCTS_URL } from './ApiUrl';
+import { CATEGORIES_URL, FAQ_URL, NEWS_URL, PARTNERS_URL, PRODUCTS_URL, SLIDERS_URL, SUB_CATEGORIES_URL, TOP_PRODUCTS_URL, WHY_US_URL } from './ApiUrl';
 
 export const dataTopProducts = [
     { id: 1, image: ProdImg, new: true, percent: null, recommend: false, name: "Any submit desc", description: "Строительный пылесос INGCO VC14122, Строительный пылесос INGCO VC14122" },
@@ -59,4 +59,16 @@ export const fetchFaq = () => {
 
 export const fetchPartner = () => {
     return axios.get(PARTNERS_URL)
+};
+
+// API of Sliders
+
+export const fetchSliders = () => {
+    return axios.get(SLIDERS_URL)
+};
+
+// API of WhyUs
+
+export const fetchWhyUs = () => {
+    return axios.get(WHY_US_URL)
 };

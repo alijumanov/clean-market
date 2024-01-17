@@ -3,18 +3,24 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import '../../styles/home/Header.scss';
-import Img from '../../assets/images/header.png';
+import { useQuery } from 'react-query';
+import { fetchSliders } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const Header = () => {
+
+    // API options
+
+    const dataSlider = useQuery('sliders', fetchSliders);
+
     return (
         <div className='Header parent'>
             <div className="wrapper">
                 <Swiper
                     navigation={true}
                     autoplay={{
-                        delay: 2500,
+                        delay: 3000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
@@ -23,26 +29,11 @@ const Header = () => {
                     loop={true}
                     modules={[Navigation, Pagination, Autoplay]}
                     className="mySwiper">
-                    <SwiperSlide className="lenta pd-3">
-                        <img src={Img} alt="img" className="img" />
-                        <p className="text desc">The industry's standard dummy text ever since the. The industry's standard dummy text ever since the </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="lenta pd-3">
-                        <img src={Img} alt="img" className="img" />
-                        <p className="text desc">The industry's standard dummy text ever since the. The industry's standard dummy text ever since the </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="lenta pd-3">
-                        <img src={Img} alt="img" className="img" />
-                        <p className="text desc">The industry's standard dummy text ever since the. The industry's standard dummy text ever since the </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="lenta pd-3">
-                        <img src={Img} alt="img" className="img" />
-                        <p className="text desc">The industry's standard dummy text ever since the. The industry's standard dummy text ever since the </p>
-                    </SwiperSlide>
-                    <SwiperSlide className="lenta pd-3">
-                        <img src={Img} alt="img" className="img" />
-                        <p className="text desc">The industry's standard dummy text ever since the. The industry's standard dummy text ever since the </p>
-                    </SwiperSlide>
+                    {dataSlider?.data?.data?.map((item) => (
+                        <SwiperSlide key={item?.id} className="lenta pd-3">
+                            <img src={item?.image} alt="img" className="img" />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </div>

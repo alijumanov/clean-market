@@ -1,12 +1,17 @@
 import React from 'react';
 import "swiper/css";
+import { useQuery } from 'react-query';
 import { Autoplay } from 'swiper/modules';
 import '../../styles/home/Advantages.scss';
-import Img from '../../assets/images/adv.png';
+import { fetchWhyUs } from '../../api/Api';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Advantages = () => {
+
+    // API options
+
+    const dataWhyUs = useQuery('why-us', fetchWhyUs);
 
     // i18next
 
@@ -35,26 +40,11 @@ const Advantages = () => {
                     }
                 }}
             >
-                <SwiperSlide className="card round-1-5 pd-2-5">
-                    {/* <h1 className="title">Bepul yetkazib berish</h1> */}
-                    <img src={Img} alt="img" className="img" />
-                </SwiperSlide>
-                <SwiperSlide className="card round-1-5 pd-2-5">
-                    {/* <h1 className="title">Bepul yetkazib berish</h1> */}
-                    <img src={Img} alt="img" className="img" />
-                </SwiperSlide>
-                <SwiperSlide className="card round-1-5 pd-2-5">
-                    {/* <h1 className="title">Bepul yetkazib berish</h1> */}
-                    <img src={Img} alt="img" className="img" />
-                </SwiperSlide>
-                <SwiperSlide className="card round-1-5 pd-2-5">
-                    {/* <h1 className="title">Bepul yetkazib berish</h1> */}
-                    <img src={Img} alt="img" className="img" />
-                </SwiperSlide>
-                <SwiperSlide className="card round-1-5 pd-2-5">
-                    {/* <h1 className="title">Bepul yetkazib berish</h1> */}
-                    <img src={Img} alt="img" className="img" />
-                </SwiperSlide>
+                {dataWhyUs?.data?.data?.map((item) => (
+                    <SwiperSlide key={item?.id} className="card round-1-5 pd-2-5">
+                        <img src={item?.image} alt="img" className="img" />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </div>
     );
