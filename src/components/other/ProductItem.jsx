@@ -33,6 +33,8 @@ const ProductItem = ({ changeProdValue }) => {
         setImageValue(dataProductItem?.data?.data?.image1)
     }, [dataProductItem?.isLoading]);
 
+    console.log(dataProductItem?.data?.data)
+
     return (
         <>
             <div className="ProductItem parent">
@@ -79,7 +81,18 @@ const ProductItem = ({ changeProdValue }) => {
                         </div>
                         <div className="middle gap-1">
                             <p className="text">{t("characters")}</p>
-                            <p className="desc desc_box pd-05 round-05 min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p>
+                            {/* <p className="desc desc_box pd-05 round-05 min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p> */}
+                            <div className="lists gap-05">
+                                {lang == "uz" && dataProductItem?.data?.data?.description_uz?.split("\r\n\r\n")?.map((c) => (
+                                    <p key={c} className="desc desc_box min-text pd-05">{c}</p>
+                                ))}
+                                {lang == "ru" && dataProductItem?.data?.data?.description_ru?.split("\r\n\r\n")?.map((c) => (
+                                    <p key={c} className="desc desc_box min-text pd-05">{c}</p>
+                                ))}
+                                {lang == "en" && dataProductItem?.data?.data?.description_en?.split("\r\n\r\n")?.map((c) => (
+                                    <p key={c} className="desc desc_box min-text pd-05">{c}</p>
+                                ))}
+                            </div>
                         </div>
                         <div className="right gap-1">
                             <p className="big-text">{dataProductItem?.data?.data?.price} {t("sum")}</p>
@@ -88,7 +101,8 @@ const ProductItem = ({ changeProdValue }) => {
                         </div>
                     </div>
                     <p className="text">{t("description_product")}</p>
-                    <div className="lists gap-05">
+                    <p className="desc desc_box pd-05 round-05 min-text">{lang == 'uz' ? dataProductItem?.data?.data?.text_uz : lang == 'ru' ? dataProductItem?.data?.data?.text_ru : dataProductItem?.data?.data?.text_en}</p>
+                    {/* <div className="lists gap-05">
                         {lang == "uz" && dataProductItem?.data?.data?.description_uz?.split("\r\n\r\n")?.map((c) => (
                             <p key={c} className="desc desc_box min-text pd-05">{c}</p>
                         ))}
@@ -98,7 +112,7 @@ const ProductItem = ({ changeProdValue }) => {
                         {lang == "en" && dataProductItem?.data?.data?.description_en?.split("\r\n\r\n")?.map((c) => (
                             <p key={c} className="desc desc_box min-text pd-05">{c}</p>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <TopProducts />

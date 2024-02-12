@@ -125,12 +125,24 @@ $primary: #3079BD;
         }
 
         .desc_box {
-            border: solid 1px rgb(176, 176, 176);
+            border: solid 1px rgb(165, 165, 165);
         }
 
         .lists {
-            display: grid;
-            grid-template-columns: repeat(2, 2fr);
+            // display: grid;
+            // grid-template-columns: repeat(1, 1fr);
+            display: flex;
+            flex-direction: column;
+
+            .desc_box {
+                opacity: 1;
+                background-color: rgb(201, 201, 201);
+
+                &:nth-child(2n) {
+                    border: solid 1px rgb(228, 228, 228);
+                    background-color: rgb(246, 246, 246);
+                }
+            }
         }
     }
 }

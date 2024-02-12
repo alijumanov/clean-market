@@ -46,9 +46,7 @@ const HomeCategories = () => {
                         }
                     }}
                 >
-                    {dataCategories?.data?.data?.sort(function (a, b) {
-                        return parseInt(a?.id) - parseInt(b?.id)
-                    })?.map((item) => (
+                    {dataCategories?.data?.data?.map((item) => (
                         <SwiperSlide key={item?.id}>
                             <Link to={`/categories/${item?.id}`} className="product gap-1 pd-1 round-1">
                                 <p className="text">{getName(item)}</p>
@@ -58,7 +56,7 @@ const HomeCategories = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <Swiper
+                {/* <Swiper
                     slidesPerView={2}
                     spaceBetween={10}
                     loop={true}
@@ -87,7 +85,7 @@ const HomeCategories = () => {
                             </Link>
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                </Swiper> */}
             </div>
         </div>
     );
