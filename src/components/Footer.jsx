@@ -2,15 +2,16 @@ import React from 'react';
 import '../styles/Footer.scss';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import Map from '../assets/images/map.jpg';
 import { fetchCategories } from '../api/Api';
 import { useTranslation } from 'react-i18next';
+import { getName } from '../languages/language';
 import Youtube from '../assets/icons/youtube.svg';
 import EmailIcon from '../assets/icons/email.svg';
 import LocIcon from '../assets/icons/location1.svg';
 import Facebook from '../assets/icons/facebook2.svg';
 import Telegram from '../assets/icons/telegram1.svg';
 import Instagram from '../assets/icons/instagram2.svg';
-import { getName } from '../languages/language';
 
 const Footer = () => {
 
@@ -29,7 +30,7 @@ const Footer = () => {
                     <div className="big-text">{t("Clemar")}</div>
                     <p className="min-text mtop-05">{t("contacts")}</p>
                     <a href="tel:+998998606060" className="text">+998 99 860 60 60</a>
-                    <a href='#' target={"_blank"} className="location gap-05 mtop-05">
+                    <a href='https://yandex.ru/navi/?ll=69.220719,41.290161&panorama%5Bpoint%5D=69.220719,41.290161&panorama%5Bdirection%5D=227.914276,-0.865454&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1486659497_804360267_23_1571374783' target={"_blank"} className="location gap-05 mtop-05">
                         <img src={LocIcon} alt="icn" className="icn" />
                         <p className="min-text">{t("dokon")}</p>
                     </a>
@@ -64,6 +65,11 @@ const Footer = () => {
                     <Link className="min-text">{t("kategoriyalar")}</Link>
                     <Link className="min-text">{t("negabiz")}</Link>
                     <Link className="min-text">{t("faq")}</Link>
+                </div>
+                <div className="tool">
+                    <a href="https://yandex.ru/navi/?ll=69.220719,41.290161&panorama%5Bpoint%5D=69.220719,41.290161&panorama%5Bdirection%5D=227.914276,-0.865454&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1486659497_804360267_23_1571374783" target={"_blank"} className="map round-05">
+                        <img src={Map} alt="img" className="img" />
+                    </a>
                 </div>
             </div>
             <div className="wrapper copyright gap-4">

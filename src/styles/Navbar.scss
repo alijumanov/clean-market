@@ -1,7 +1,10 @@
 // $primary: #086e81;
 // $primary: #00205B;
 // $primary: #0095E9;
-$primary: #3079BD;
+// $primary: #3079BD;
+// $primary: #0A92D0;
+// $primary: #4BAC3B;
+$primary: #459057;
 
 .Navbar {
     top: 0;
@@ -175,18 +178,17 @@ $primary: #3079BD;
         padding: 0.5vw 10vw;
         align-items: center;
         background-color: white;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         @media (max-width:767px) {
             gap: 2vw 5vw;
             flex-wrap: wrap;
             padding: 1.5vw 5vw;
-            justify-content: space-between;
         }
 
         .logo {
             width: 10vw;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
 
@@ -274,24 +276,24 @@ $primary: #3079BD;
                     width: 68%;
                     display: grid;
                     overflow: auto;
-                    align-items: start;
                     max-height: 100vh;
+                    align-items: start;
                     border-left: solid 1px grey;
                     grid-template-columns: repeat(3, 3fr);
 
                     @media (max-width:767px) {
                         width: 49%;
-                        grid-template-columns: repeat(1, 1fr);
                         display: flex;
                         flex-direction: column;
                         justify-content: flex-start;
+                        grid-template-columns: repeat(1, 1fr);
                     }
 
                     .prod_img {
                         max-width: 100%;
                         min-width: 100%;
-                        max-height: 5vw;
-                        min-height: 5vw;
+                        max-height: 9vw;
+                        min-height: 9vw;
                         object-fit: contain;
 
                         @media (max-width:767px) {
@@ -302,20 +304,43 @@ $primary: #3079BD;
                     }
 
                     .text {
-                        color: black;
+                        z-index: 2;
+                        width: 100%;
+                        height: 100%;
+                        display: none;
+                        color: white;
+                        position: absolute;
                         text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: rgba(0, 0, 0, 0.444);
 
                         @media (max-width:767px) {
+                            padding: 0;
+                            display: flex;
+                            color: black;
                             font-size: 3vw;
                             text-align: left;
+                            position: relative;
+                            background-color: transparent;
                         }
                     }
 
                     .prod {
                         display: flex;
+                        overflow: hidden;
+                        position: relative;
+                        align-items: center;
                         text-decoration: none;
                         flex-direction: column;
-                        border: solid 1px grey;
+                        justify-content: center;
+                        border: solid 1px rgb(163, 163, 163);
+
+                        &:hover {
+                            .text {
+                                display: flex;
+                            }
+                        }
                     }
                 }
 

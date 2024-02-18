@@ -1,7 +1,11 @@
 // $primary: #086e81;
 // $primary: #00205B;
 // $primary: #0095E9;
-$primary: #3079BD;
+// $primary: #3079BD;
+// $primary: #0A92D0;
+// $primary: #4BAC3B;
+$primary: #459057;
+$secondary: rgb(162, 162, 162);
 
 .Categories {
     .wrapper {
@@ -20,6 +24,7 @@ $primary: #3079BD;
 
             @media (max-width:767px) {
                 width: 42%;
+                display: none;
             }
 
             .name {
@@ -83,7 +88,7 @@ $primary: #3079BD;
             flex-direction: column;
 
             @media (max-width:767px) {
-                width: 50%;
+                width: 100%;
             }
 
             .name {
@@ -95,7 +100,7 @@ $primary: #3079BD;
                 grid-template-columns: repeat(3, 3fr);
 
                 @media (max-width:767px) {
-                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-columns: repeat(2, 2fr);
                 }
 
                 .product {

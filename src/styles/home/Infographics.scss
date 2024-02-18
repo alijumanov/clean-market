@@ -1,7 +1,11 @@
 // $primary: #086e81;
 // $primary: #00205B;
 // $primary: #0095E9;
-$primary: #3079BD;
+// $primary: #3079BD;
+// $primary: #0A92D0;
+// $primary: #4BAC3B;
+$secondary: grey;
+$primary: #459057;
 
 .Infographics {
     .wrapper {
@@ -32,7 +36,7 @@ $primary: #3079BD;
                 align-items: center;
                 flex-direction: column;
                 justify-content: center;
-                border: solid 1px $primary;
+                border: solid 1px $secondary;
 
                 &:hover {
                     .child {
@@ -64,7 +68,7 @@ $primary: #3079BD;
 
                 .title {
                     font-weight: 400;
-                    color: $primary;
+                    color: black;
                     text-align: center;
                 }
 

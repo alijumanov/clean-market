@@ -90,7 +90,7 @@ const Navbar = ({ changeProdValue }) => {
                 <p className="text desc">{t("h1")}</p>
                 <button className="bonus_btn round-05 text scale-05" onClick={() => changeProdValue("1")}>{t("hbutton")}</button>
             </div>
-            <div className="middle_navbar">
+            <div className="middle_navbar gap-2">
                 <div className="left gap-05">
                     <img src={Location} alt="loc" className="loc" />
                     <p className="min-text" style={{ opacity: 0.5 }}>{t("h2button")}:</p>
@@ -155,7 +155,7 @@ const Navbar = ({ changeProdValue }) => {
                                 {dataProductsWith?.data?.data?.results?.map((item) => (
                                     <Link key={item?.id} to={`/products/${item?.slug}`} className="prod gap-05 pd-05 round-05" onClick={() => [setShowCatalog(false), setSubCat("")]}>
                                         <img src={`${DOMEN_URL}${item?.image1}`} alt="img" className="prod_img" />
-                                        <p className="text">{getName(item)}</p>
+                                        <p className="text pd-1">{getName(item)}</p>
                                     </Link>
                                 ))}
                             </div>

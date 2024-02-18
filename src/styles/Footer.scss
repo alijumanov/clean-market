@@ -1,10 +1,14 @@
 // $primary: #086e81;
 // $primary: #00205B;
 // $primary: #0095E9;
-$primary: #3079BD;
+// $primary: #3079BD;
+// $primary: #0A92D0;
+// $primary: #4BAC3B;
+$primary: #459057;
+$secondary: rgb(162, 162, 162);
 
 .Footer {
-    background-color: $primary;
+    background-color: $secondary;
 
     .wrapper {
         display: flex;
@@ -15,12 +19,16 @@ $primary: #3079BD;
         }
 
         .tool {
-            width: 25%;
+            width: 20%;
             display: flex;
             flex-direction: column;
 
             &:nth-child(1) {
-                width: 70%;
+                width: 35%;
+            }
+
+            &:last-child {
+                width: 25%;
             }
 
             @media (max-width:767px) {
@@ -76,6 +84,17 @@ $primary: #3079BD;
                         max-width: 100%;
                         min-width: 100%;
                     }
+                }
+            }
+
+            .map {
+                display: flex;
+                overflow: hidden;
+                border: solid 1px rgb(72, 72, 72);
+
+                .img {
+                    max-width: 100%;
+                    min-width: 100%;
                 }
             }
         }

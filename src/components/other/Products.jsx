@@ -60,11 +60,11 @@ const Products = ({ changeProdValue }) => {
                             }
                         </Link>
                     ))}
-                    <div className="settings round-1 pd-1-5 mtop-1 gap-1">
+                    {/* <div className="settings round-1 pd-1-5 mtop-1 gap-1">
                         <p className="text">{t("name_ph")}</p>
                         <img src={Settings} alt="img" className="img" />
                         <p className="min-text">{t("desc_ph")}</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="right gap-2">
                     <h1 className="name">{t("productss")}</h1>
