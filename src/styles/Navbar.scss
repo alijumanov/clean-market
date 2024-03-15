@@ -4,7 +4,8 @@
 // $primary: #3079BD;
 // $primary: #0A92D0;
 // $primary: #4BAC3B;
-$primary: #459057;
+// $primary: #459057;
+$primary: #49C3F2;
 
 .Navbar {
     top: 0;
@@ -237,21 +238,28 @@ $primary: #459057;
             }
 
             .catalog_bar {
-                top: 0;
-                left: 0;
+                top: 3vw;
+                left: -10vw;
                 z-index: 10;
-                width: 100%;
-                height: 100%;
+                width: 100vw;
+                height: 65vh;
                 display: flex;
                 overflow: auto;
-                position: fixed;
+                position: absolute;
                 background-color: white;
                 justify-content: space-between;
+                box-shadow: 0 7px 7px 1px rgb(215, 215, 215);
+
+                @media (max-width:767px) {
+                    top: 8vw;
+                    left: -5vw;
+                    box-shadow: 0 4px 6px 1px rgb(236, 236, 236);
+                }
 
                 .close_icn {
-                    top: 1.5vw;
-                    right: 1.2vw;
-                    width: 1.5vw;
+                    top: 1vw;
+                    right: 1.5vw;
+                    width: 1.2vw;
                     cursor: pointer;
                     position: absolute;
 
@@ -263,9 +271,9 @@ $primary: #459057;
                 }
 
                 .left {
-                    width: 30%;
+                    width: 27%;
                     overflow: auto;
-                    max-height: 100vh;
+                    max-height: 100%;
 
                     @media (max-width:767px) {
                         width: 49%;
@@ -273,10 +281,10 @@ $primary: #459057;
                 }
 
                 .right {
-                    width: 68%;
+                    width: 71%;
                     display: grid;
                     overflow: auto;
-                    max-height: 100vh;
+                    max-height: 100%;
                     align-items: start;
                     border-left: solid 1px grey;
                     grid-template-columns: repeat(3, 3fr);
@@ -289,57 +297,22 @@ $primary: #459057;
                         grid-template-columns: repeat(1, 1fr);
                     }
 
-                    .prod_img {
-                        max-width: 100%;
-                        min-width: 100%;
-                        max-height: 9vw;
-                        min-height: 9vw;
-                        object-fit: contain;
-
-                        @media (max-width:767px) {
-                            display: none;
-                            max-height: 15vw;
-                            min-height: 15vw;
-                        }
-                    }
-
                     .text {
-                        z-index: 2;
-                        width: 100%;
-                        height: 100%;
-                        display: none;
-                        color: white;
-                        position: absolute;
-                        text-align: center;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: rgba(0, 0, 0, 0.444);
-
-                        @media (max-width:767px) {
-                            padding: 0;
-                            display: flex;
-                            color: black;
-                            font-size: 3vw;
-                            text-align: left;
-                            position: relative;
-                            background-color: transparent;
-                        }
+                        color: black;
+                        overflow: hidden;
+                        font-weight: 600;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
                     }
 
                     .prod {
-                        display: flex;
-                        overflow: hidden;
-                        position: relative;
-                        align-items: center;
                         text-decoration: none;
-                        flex-direction: column;
-                        justify-content: center;
-                        border: solid 1px rgb(163, 163, 163);
+                        border: solid 1px transparent;
 
                         &:hover {
-                            .text {
-                                display: flex;
-                            }
+                            border-color: rgb(207, 207, 207);
+                            background-color: rgb(207, 207, 207);
                         }
                     }
                 }
@@ -348,14 +321,14 @@ $primary: #459057;
                     display: flex;
                     color: black;
                     text-align: left;
+                    margin-bottom: 1vw;
                     padding: 0.5vw 1vw;
                     flex-direction: column;
-                    border-bottom: solid 1px rgb(210, 210, 210);
+                    border: solid 1px transparent;
 
-                    // &:hover {
-                    //     color: $primary;
-                    //     background-color: white;
-                    // }
+                    &:hover {
+                        border-color: black;
+                    }
 
                     @media (max-width:767px) {
                         padding: 1.5vw 3vw;
@@ -416,6 +389,8 @@ $primary: #459057;
                 }
 
                 .active_catalog {
+                    border-color: rgb(210, 210, 210);
+
                     .parent {
                         .icn2 {
                             transform: rotate(180deg);
