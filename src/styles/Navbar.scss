@@ -189,7 +189,7 @@ $primary: #49C3F2;
 
         .logo {
             width: 10vw;
-            display: none;
+            // display: none;
             align-items: center;
             justify-content: center;
 
@@ -239,7 +239,7 @@ $primary: #49C3F2;
 
             .catalog_bar {
                 top: 3vw;
-                left: -10vw;
+                left: -22vw;
                 z-index: 10;
                 width: 100vw;
                 height: 65vh;
@@ -252,7 +252,7 @@ $primary: #49C3F2;
 
                 @media (max-width:767px) {
                     top: 8vw;
-                    left: -5vw;
+                    left: -35vw;
                     box-shadow: 0 4px 6px 1px rgb(236, 236, 236);
                 }
 

@@ -5,7 +5,7 @@ import Bar from '../assets/icons/bar.svg';
 import { DOMEN_URL } from '../api/ApiUrl';
 import { useSelector } from 'react-redux';
 import Down from '../assets/icons/down.svg';
-import Logo from '../assets/images/logo1.png';
+import Logo from '../assets/images/logo.png';
 import Close from '../assets/icons/close.svg';
 import Heart from '../assets/icons/heart1.png';
 import { useTranslation } from 'react-i18next';

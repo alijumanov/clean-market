@@ -53,7 +53,7 @@ const TopProducts = ({ changeProdValue }) => {
                     className="mySwiper"
                     breakpoints={{
                         768: {
-                            slidesPerView: 4,
+                            slidesPerView: 3,
                             spaceBetween: 30,
                         }
                     }}
