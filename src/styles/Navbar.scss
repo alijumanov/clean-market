@@ -246,9 +246,9 @@ $primary: #49C3F2;
                 display: flex;
                 overflow: auto;
                 position: absolute;
-                background-color: white;
+                // background-color: white;
                 justify-content: space-between;
-                box-shadow: 0 7px 7px 1px rgb(215, 215, 215);
+                // box-shadow: 0 7px 7px 1px rgb(215, 215, 215);
 
                 @media (max-width:767px) {
                     top: 8vw;
@@ -271,12 +271,51 @@ $primary: #49C3F2;
                 }
 
                 .left {
+                    left: 13vw;
                     width: 27%;
-                    overflow: auto;
-                    max-height: 100%;
+                    max-height: 70vh;
+                    position: absolute;
+                    background-color: white;
+                    border: solid 1px $primary;
 
                     @media (max-width:767px) {
+                        left: 3vw;
                         width: 49%;
+                    }
+
+                    .child {
+                        top: 3vw;
+                        width: 80%;
+                        right: -81%;
+                        display: flex;
+                        position: absolute;
+                        flex-direction: column;
+                        background-color: white;
+                        border: solid 1px $primary;
+                        @media (max-width:767px) {
+                            width: 85%;
+                            right: -86%;
+                        }
+
+                        .prod {
+                            padding: 0.5vw 1vw;
+                            text-decoration: none;
+                            border: solid 1px transparent;
+                            border-left: none;
+                            border-right: none;
+
+                            &:hover {
+                                border-color: $primary;
+                            }
+
+                            @media (max-width:767px) {
+                                padding: 1vw 2vw;
+                            }
+
+                            .min-text {
+                                color: black;
+                            }
+                        }
                     }
                 }
 
@@ -286,6 +325,7 @@ $primary: #49C3F2;
                     overflow: auto;
                     max-height: 100%;
                     align-items: start;
+                    background-color: white;
                     border-left: solid 1px grey;
                     grid-template-columns: repeat(3, 3fr);
 
@@ -325,9 +365,11 @@ $primary: #49C3F2;
                     padding: 0.5vw 1vw;
                     flex-direction: column;
                     border: solid 1px transparent;
+                    border-left: none;
+                    border-right: none;
 
                     &:hover {
-                        border-color: black;
+                        border-color: $primary;
                     }
 
                     @media (max-width:767px) {

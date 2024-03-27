@@ -15,23 +15,30 @@ const Header = () => {
     const dataSlider = useQuery('sliders', fetchSliders);
 
     return (
-        <div className='Header parent'>
-            <div className="wrapper">
+        <div className='HomeHeader parent'>
+            <div className="wrapper gap-2">                
                 <Swiper
+                    slidesPerView={1}
+                    spaceBetween={10}
                     navigation={true}
+                    loop={true}
                     autoplay={{
-                        delay: 3000,
+                        delay: 5000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
                         clickable: true,
                     }}
-                    loop={true}
                     modules={[Navigation, Pagination, Autoplay]}
                     className="mySwiper">
                     {dataSlider?.data?.data?.map((item) => (
-                        <SwiperSlide key={item?.id} className="lenta pd-3">
-                            <img src={item?.image} alt="img" className="img" />
+                        <SwiperSlide key={item?.id} className="lenta">
+                            <div><img src={item?.image} alt="img" className="img" /></div>
+                        </SwiperSlide>
+                    ))}
+                    {dataSlider?.data?.data?.map((item) => (
+                        <SwiperSlide key={item?.id} className="lenta">
+                            <div><img src={item?.image} alt="img" className="img" /></div>
                         </SwiperSlide>
                     ))}
                 </Swiper>

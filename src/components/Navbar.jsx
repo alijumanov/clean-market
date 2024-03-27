@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Navbar.scss';
 import { useQuery } from 'react-query';
 import Bar from '../assets/icons/bar.svg';
-import { DOMEN_URL } from '../api/ApiUrl';
 import { useSelector } from 'react-redux';
 import Down from '../assets/icons/down.svg';
 import Logo from '../assets/images/logo.png';
@@ -132,10 +131,10 @@ const Navbar = ({ changeProdValue }) => {
                     <button className="catalog_btn round-05 gap-05 op-07" onClick={() => setShowCatalog(true)}><img src={Bar} alt="icn" className='icn' /> <p className="text">{t("cat")}</p></button>
                     {showCatalog &&
                         <div className="catalog_bar pd-2">
-                            <img src={Close} alt="close" className="close_icn" onClick={() => [setShowCatalog(false), setSubCat("")]} />
+                            {/* <img src={Close} alt="close" className="close_icn" onClick={() => [setShowCatalog(false), setSubCat("")]} /> */}
                             <div className="left">
                                 {dataCategories?.data?.data?.map((item) => (
-                                    <div key={item?.id} className={`bar_link text round-05 gap-05 ${activeCatalog == item?.id && "active_catalog"}`} onClick={() => setActiveCatalog(activeCatalog == item?.id ? null : item?.id)}>
+                                    <div key={item?.id} className={`bar_link text gap-05 ${activeCatalog == item?.id && "active_catalog"}`} onClick={() => setActiveCatalog(activeCatalog == item?.id ? null : item?.id)}>
                                         <div className="parent gap-1">
                                             <div style={{ display: 'flex', alignItems: 'center' }} className='gap-1'>
                                                 <img src={item?.icon} alt="icn1" className="icn1" />
@@ -150,14 +149,25 @@ const Navbar = ({ changeProdValue }) => {
                                         </div>
                                     </div>
                                 ))}
+                                {subCat &&
+                                    <div className="child">
+                                        {dataProductsWith?.data?.data?.results?.map((item) => (
+                                            <Link key={item?.id} to={`/products/${item?.slug}`} className="prod" onClick={() => [setShowCatalog(false), setSubCat("")]}>
+                                                <p className="min-text">{getName(item)}</p>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                }
                             </div>
-                            <div className="right pd-2 gap-1">
-                                {dataProductsWith?.data?.data?.results?.map((item) => (
-                                    <Link key={item?.id} to={`/products/${item?.slug}`} className="prod pd-05 round-05" onClick={() => [setShowCatalog(false), setSubCat("")]}>
-                                        <p className="text">{getName(item)}</p>
-                                    </Link>
-                                ))}
-                            </div>
+                            {/* {subCat &&
+                                <div className="right pd-2 gap-1">
+                                    {dataProductsWith?.data?.data?.results?.map((item) => (
+                                        <Link key={item?.id} to={`/products/${item?.slug}`} className="prod pd-05 round-05" onClick={() => [setShowCatalog(false), setSubCat("")]}>
+                                            <p className="text">{getName(item)}</p>
+                                        </Link>
+                                    ))}
+                                </div>
+                            } */}
                         </div>
                     }
                     {showCatalog &&

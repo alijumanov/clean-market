@@ -8,15 +8,12 @@
 $primary: #49C3F2;
 $secondary: rgb(162, 162, 162);
 
-.Header {
+.HomeHeader {
     .wrapper {
-        display: flex;
-        padding-left: 0;
-        padding-right: 0;
+        // display: flex;
         padding-top: 14vw;
         padding-bottom: 2vw;
-        align-items: center;
-        justify-content: center;
+        // flex-direction: column;
 
         @media (max-width:767px) {
             padding-top: 44vw;
@@ -24,75 +21,77 @@ $secondary: rgb(162, 162, 162);
 
         .mySwiper {
             width: 100%;
-            padding-bottom: 3vw;
+            // padding-bottom: 3vw;
 
             @media (max-width:767px) {
                 padding-bottom: 8vw;
             }
 
-            .swiper-pagination {
-                .swiper-pagination-bullet-active {
-                    background-color: $primary;
-                }
-            }
-
             .lenta {
-                width: 100%;
                 height: 25vw;
                 display: flex;
-                padding: 6vw 13vw;
                 position: relative;
-                align-items: flex-end;
+                flex-direction: column;
 
                 @media (max-width:767px) {
-                    padding: 6vw 10vw;
                     height: 45vw;
                 }
 
                 .img {
                     top: 0;
-                    left: 10vw;
+                    left: 0;
+                    width: 100%;
                     height: 100%;
                     object-fit: cover;
                     position: absolute;
-                    width: calc(100% - 20vw);
-
-                    @media (max-width:767px) {
-                        left: 5vw;
-                        width: calc(100% - 10vw);
-                    }
-                }
-
-                .desc {
-                    width: 50%;
-                    z-index: 2;
-                    color: white;
-                    position: sticky;
-
-                    @media (max-width:767px) {
-                        width: 100%;
-                    }
                 }
             }
 
-            .swiper-button-next::after,
-            .swiper-button-prev::after {
-                font-size: 1.2vw;
-                color: #9D9D9D;
-                margin-top: -2vw;
+            .swiper-button-next,
+            .swiper-button-prev {
+                left: 0;
+                width: 2.2vw;
+                height: 2.2vw;
+                display: flex;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                border: solid 1px #9D9D9D;
+
+                &::after {
+                    font-size: 1.2vw;
+                    color: #9D9D9D;
+
+                    @media (max-width:767px) {
+                        font-size: 2.8vw;
+                    }
+                }
+
+                @media (max-width:767px) {
+                    width: 6vw;
+                    height: 6vw;
+                }
             }
 
-            .swiper-button-next::after {
-                margin-right: 10vw;
-            }
-
-            .swiper-button-prev::after {
-                margin-left: 10vw;
+            .swiper-button-next {
+                right: 0;
+                left: auto;
             }
 
             .swiper-pagination {
                 span {
                     background-color: black;
+                }
+            }
+
+            .swiper-pagination {
+                .swiper-pagination-bullet-active {
+                    background-color: $primary;
                 }
             }
         }
