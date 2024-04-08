@@ -14,7 +14,7 @@ $secondary: #072B3D;
 
     .wrapper {
         display: flex;
-        align-items: flex-end;
+        // align-items: flex-end;
 
         @media (max-width:767px) {
             flex-wrap: wrap;
@@ -44,6 +44,20 @@ $secondary: #072B3D;
 
             .min-text {
                 color: white;
+
+                .icn {
+                    max-width: 1vw;
+                    min-width: 1vw;
+                    margin-left: 0.5vw;
+                    margin-bottom: -0.4vw;
+
+                    @media (max-width:767px) {
+                        max-width: 3vw;
+                        min-width: 3vw;
+                        margin-left: 1vw;
+                        margin-bottom: -1vw;
+                    }
+                }
             }
 
             .text {

@@ -55,9 +55,9 @@ const App = () => {
               <Navbar changeProdValue={changeProdValue} />
               <Routes>
                 <Route path='/' element={<HomeRouter changeProdValue={changeProdValue} />} />
-                <Route path='/categories' element={<Categories />} />
+                <Route path='/categories' element={<Products changeProdValue={changeProdValue} />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/categories/:id' element={<Categories />} />
+                <Route path='/categories/:id' element={<Products changeProdValue={changeProdValue} />} />
                 <Route path='/likes' element={<FavouriteProducts changeProdValue={changeProdValue} />} />
                 <Route path='/products' element={<Products changeProdValue={changeProdValue} />} />
                 <Route path='/sub-categories/:id' element={<Products changeProdValue={changeProdValue} />} />

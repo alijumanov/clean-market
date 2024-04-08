@@ -28,7 +28,7 @@ const News = () => {
             {dataNews?.data?.data?.filter((c) => c?.id == id)?.map((item) => (
                 <div key={item?.id} className="wrapper gap-2">
                     <h1 className="sub-title">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</h1>
-                    <img src={item?.image1} alt="news_img" className="img round-1-5" />
+                    <img src={item?.image1} alt="img" className="news_img round-1-5" />
                     <p className="text desc">{lang == 'uz' ? item?.description_uz : lang == 'ru' ? item?.description_ru : item?.description_en}</p>
                     {dataNews?.data?.data?.filter((k) => k?.id != id)?.length > 0 &&
                         <p className="big-text"><b>{t("other_news")}</b></p>

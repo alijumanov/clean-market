@@ -6,6 +6,7 @@
 // $primary: #4BAC3B;
 // $primary: #459057;
 $primary: #49C3F2;
+$secondary: #072B3D;
 
 .Navbar {
     top: 0;
@@ -42,10 +43,10 @@ $primary: #49C3F2;
 
         .bonus_btn {
             border: none;
+            color: white;
             font-weight: 600;
-            color: $primary;
             padding: 0.7vw 1.3vw;
-            background-color: white;
+            background-color: $secondary;
 
             @media (max-width:767px) {
                 padding: 1.8vw 3vw;
@@ -237,160 +238,53 @@ $primary: #49C3F2;
                 }
             }
 
-            .catalog_bar {
+            .category_bar {
                 top: 3vw;
-                left: -22vw;
-                z-index: 10;
-                width: 100vw;
-                height: 65vh;
+                z-index: 8;
+                width: 32vw;
                 display: flex;
-                overflow: auto;
                 position: absolute;
-                // background-color: white;
-                justify-content: space-between;
-                // box-shadow: 0 7px 7px 1px rgb(215, 215, 215);
+                flex-direction: column;
+                background-color: white;
+                border: solid 1px $primary;
 
                 @media (max-width:767px) {
-                    top: 8vw;
-                    left: -35vw;
-                    box-shadow: 0 4px 6px 1px rgb(236, 236, 236);
+                    top: 9vw;
+                    left: -32vw;
+                    width: 49vw;
                 }
 
-                .close_icn {
-                    top: 1vw;
-                    right: 1.5vw;
-                    width: 1.2vw;
+                .single_category {
                     cursor: pointer;
-                    position: absolute;
-
-                    @media (max-width:767px) {
-                        top: 2vw;
-                        right: 2vw;
-                        width: 3.5vw;
-                    }
-                }
-
-                .left {
-                    left: 13vw;
-                    width: 27%;
-                    max-height: 70vh;
-                    position: absolute;
-                    background-color: white;
-                    border: solid 1px $primary;
-
-                    @media (max-width:767px) {
-                        left: 3vw;
-                        width: 49%;
-                    }
-
-                    .child {
-                        top: 3vw;
-                        width: 80%;
-                        right: -81%;
-                        display: flex;
-                        position: absolute;
-                        flex-direction: column;
-                        background-color: white;
-                        border: solid 1px $primary;
-                        @media (max-width:767px) {
-                            width: 85%;
-                            right: -86%;
-                        }
-
-                        .prod {
-                            padding: 0.5vw 1vw;
-                            text-decoration: none;
-                            border: solid 1px transparent;
-                            border-left: none;
-                            border-right: none;
-
-                            &:hover {
-                                border-color: $primary;
-                            }
-
-                            @media (max-width:767px) {
-                                padding: 1vw 2vw;
-                            }
-
-                            .min-text {
-                                color: black;
-                            }
-                        }
-                    }
-                }
-
-                .right {
-                    width: 71%;
-                    display: grid;
-                    overflow: auto;
-                    max-height: 100%;
-                    align-items: start;
-                    background-color: white;
-                    border-left: solid 1px grey;
-                    grid-template-columns: repeat(3, 3fr);
-
-                    @media (max-width:767px) {
-                        width: 49%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        grid-template-columns: repeat(1, 1fr);
-                    }
-
-                    .text {
-                        color: black;
-                        overflow: hidden;
-                        font-weight: 600;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 1;
-                        -webkit-box-orient: vertical;
-                    }
-
-                    .prod {
-                        text-decoration: none;
-                        border: solid 1px transparent;
-
-                        &:hover {
-                            border-color: rgb(207, 207, 207);
-                            background-color: rgb(207, 207, 207);
-                        }
-                    }
-                }
-
-                .bar_link {
-                    display: flex;
-                    color: black;
-                    text-align: left;
-                    margin-bottom: 1vw;
-                    padding: 0.5vw 1vw;
-                    flex-direction: column;
+                    position: relative;
                     border: solid 1px transparent;
-                    border-left: none;
-                    border-right: none;
 
                     &:hover {
                         border-color: $primary;
+
+                        .childs {
+                            display: flex;
+                        }
                     }
 
-                    @media (max-width:767px) {
-                        padding: 1.5vw 3vw;
-                    }
-
-                    .parent {
+                    .category_title {
                         width: 100%;
                         display: flex;
-                        cursor: pointer;
                         align-items: center;
                         justify-content: space-between;
 
-                        .icn1 {
-                            max-width: 1.2vw;
-                            min-width: 1.2vw;
+                        .left {
+                            display: flex;
+                            align-items: center;
 
-                            @media (max-width:767px) {
-                                display: none;
-                                max-width: 4vw;
-                                min-width: 4vw;
+                            .icn1 {
+                                max-width: 1.2vw;
+                                min-width: 1.2vw;
+
+                                @media (max-width:767px) {
+                                    max-width: 4vw;
+                                    min-width: 4vw;
+                                }
                             }
                         }
 
@@ -403,6 +297,11 @@ $primary: #49C3F2;
                             -ms-transition: 0.2s;
                             -o-transition: 0.2s;
                             margin-right: 0.5vw;
+                            transform: rotate(-90deg);
+                            -webkit-transform: rotate(-90deg);
+                            -moz-transform: rotate(-90deg);
+                            -ms-transform: rotate(-90deg);
+                            -o-transform: rotate(-90deg);
 
                             @media (max-width:767px) {
                                 max-width: 1.5vw;
@@ -412,39 +311,35 @@ $primary: #49C3F2;
                     }
 
                     .childs {
-                        height: 0;
+                        top: 0;
                         width: 100%;
-                        display: flex;
-                        overflow: hidden;
+                        right: -100.7%;
+                        display: none;
+                        overflow: auto;
+                        max-height: 50vh;
+                        position: absolute;
                         flex-direction: column;
+                        background-color: white;
+                        border: solid 1px rgb(169, 169, 169);
 
-                        .link {
-                            color: $primary;
-                            cursor: pointer;
+                        @media (max-width:767px) {
+                            width: 95%;
+                            right: -95.8%;
+                        }
+
+                        .child {
+                            color: black;
+                            padding: 0.3vw 1vw;
 
                             &:hover {
                                 color: white;
                                 background-color: $primary;
                             }
+
+                            @media (max-width:767px) {
+                                padding: 1vw 2vw;
+                            }
                         }
-                    }
-                }
-
-                .active_catalog {
-                    border-color: rgb(210, 210, 210);
-
-                    .parent {
-                        .icn2 {
-                            transform: rotate(180deg);
-                            -webkit-transform: rotate(180deg);
-                            -moz-transform: rotate(180deg);
-                            -ms-transform: rotate(180deg);
-                            -o-transform: rotate(180deg);
-                        }
-                    }
-
-                    .childs {
-                        height: auto;
                     }
                 }
             }
@@ -457,7 +352,7 @@ $primary: #49C3F2;
             align-items: center;
 
             @media (max-width:767px) {
-                width: 70%;
+                width: 65%;
             }
 
             .input {

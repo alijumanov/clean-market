@@ -81,7 +81,8 @@ const TopProducts = ({ changeProdValue }) => {
                                     <img src={item?.image1} alt="img" className="img" />
                                 </Link>
                             </div>
-                            <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p>
+                            {/* <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p> */}
+                            <p className="min-text desc">{item?.name_en}</p>
                             <p className="text price">{item?.price}  {t("sum")}</p>
                             <div className="btns gap-1">
                                 <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>{t("buy")}</button>

@@ -21,31 +21,31 @@ const Advantages = () => {
                 <h1 className="sub-title">{t("negabiz")}</h1>
                 <div className="cards mtop-2 gap-1-5">
                     {dataWhyUs?.data?.data?.slice(0, 1)?.map((item) => (
-                        <div key={item?.id} className="card gap-1">
+                        <div key={item?.id} className="card gap-05">
                             <img src={item?.image} alt="img" className="img" />
                             <h1 className="text">{t("adv1")}</h1>
                         </div>
                     ))}
                     {dataWhyUs?.data?.data?.slice(1, 2)?.map((item) => (
-                        <div key={item?.id} className="card gap-1">
+                        <div key={item?.id} className="card gap-05">
                             <img src={item?.image} alt="img" className="img" />
                             <h1 className="text">{t("adv2")}</h1>
                         </div>
                     ))}
                     {dataWhyUs?.data?.data?.slice(2, 3)?.map((item) => (
-                        <div key={item?.id} className="card gap-1">
+                        <div key={item?.id} className="card gap-05">
                             <img src={item?.image} alt="img" className="img" />
                             <h1 className="text">{t("adv3")}</h1>
                         </div>
                     ))}
                     {dataWhyUs?.data?.data?.slice(3, 4)?.map((item) => (
-                        <div key={item?.id} className="card gap-1">
+                        <div key={item?.id} className="card gap-05">
                             <img src={item?.image} alt="img" className="img" />
                             <h1 className="text">{t("adv4")}</h1>
                         </div>
                     ))}
                     {dataWhyUs?.data?.data?.slice(4, 5)?.map((item) => (
-                        <div key={item?.id} className="card gap-1">
+                        <div key={item?.id} className="card gap-05">
                             <img src={item?.image} alt="img" className="img" />
                             <h1 className="text">{t("adv5")}</h1>
                         </div>

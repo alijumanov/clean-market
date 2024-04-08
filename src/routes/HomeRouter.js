@@ -1,5 +1,6 @@
 import React from 'react';
 import FAQ from '../components/home/FAQ';
+import Bonus from '../components/home/Bonus';
 import Contacts from '../components/Contacts';
 import Header from '../components/home/Header';
 import Partners from '../components/home/Partners';
@@ -16,9 +17,10 @@ const HomeRouter = ({ changeProdValue }) => {
             <HomeCategories />
             <TopProducts changeProdValue={changeProdValue} />
             <Advantages />
-            <Infographics />
-            <HomeNews />
             <Partners />
+            <Bonus />
+            <HomeNews />
+            <Infographics />
             <FAQ />
             <Contacts />
         </>

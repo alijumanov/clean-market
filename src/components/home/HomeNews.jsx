@@ -16,8 +16,6 @@ const HomeNews = () => {
 
     const dataNews = useQuery('news', fetchNews);
 
-    console.log(dataNews?.data?.data)
-
     // i18next
 
     const { t } = useTranslation();

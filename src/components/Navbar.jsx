@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import '../styles/Navbar.scss';
 import { useQuery } from 'react-query';
 import Bar from '../assets/icons/bar.svg';
@@ -15,7 +15,7 @@ import Location from '../assets/icons/location.svg';
 import Instagram from '../assets/icons/instagram.svg';
 import { changeLang, getName } from '../languages/language';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { fetchCategories, fetchProducts, fetchSubCategories } from '../api/Api';
+import { fetchCategories, fetchProducts, fetchProductsAll, fetchSubCategories } from '../api/Api';
 
 const Navbar = ({ changeProdValue }) => {
 
@@ -80,8 +80,13 @@ const Navbar = ({ changeProdValue }) => {
 
     // catalog bar options
 
-    const [subCat, setSubCat] = useState("")
-    const dataProductsWith = useQuery(['products-with-1', `?subcategory_id=${subCat}`], () => fetchProducts(`?subcategory_id=${subCat}`));
+    const [category, setCategory] = useState("")
+
+    useMemo(() => {
+        setCategory(dataCategories?.data?.data[0]?.id);
+    }, [dataCategories?.isLoading]);
+
+    const dataProductsWith = useQuery('products-with-1', fetchProductsAll);
 
     return (
         <div className={`Navbar ${scroll && "HideNavbar"}`}>
@@ -93,7 +98,7 @@ const Navbar = ({ changeProdValue }) => {
                 <div className="left gap-05">
                     <img src={Location} alt="loc" className="loc" />
                     <p className="min-text" style={{ opacity: 0.5 }}>{t("h2button")}:</p>
-                    <a href="#" target={"_blank"} className="min-text">{t("tosh")}</a>
+                    <a href="https://yandex.ru/navi/?ll=69.220719,41.290161&panorama%5Bpoint%5D=69.220719,41.290161&panorama%5Bdirection%5D=227.914276,-0.865454&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1486659497_804360267_23_1571374783" target={"_blank"} className="min-text">{t("tosh")}</a>
                 </div>
                 <div className="right gap-2-5">
                     <a href='#' target={"_blank"} className="tool gap-05">
@@ -130,48 +135,28 @@ const Navbar = ({ changeProdValue }) => {
                 <div className="catalog">
                     <button className="catalog_btn round-05 gap-05 op-07" onClick={() => setShowCatalog(true)}><img src={Bar} alt="icn" className='icn' /> <p className="text">{t("cat")}</p></button>
                     {showCatalog &&
-                        <div className="catalog_bar pd-2">
-                            {/* <img src={Close} alt="close" className="close_icn" onClick={() => [setShowCatalog(false), setSubCat("")]} /> */}
-                            <div className="left">
-                                {dataCategories?.data?.data?.map((item) => (
-                                    <div key={item?.id} className={`bar_link text gap-05 ${activeCatalog == item?.id && "active_catalog"}`} onClick={() => setActiveCatalog(activeCatalog == item?.id ? null : item?.id)}>
-                                        <div className="parent gap-1">
-                                            <div style={{ display: 'flex', alignItems: 'center' }} className='gap-1'>
-                                                <img src={item?.icon} alt="icn1" className="icn1" />
-                                                {getName(item)}
-                                            </div>
-                                            <img src={DownIcon} alt="icn2" className="icn2" />
+                        <div className="category_bar">
+                            {dataCategories?.data?.data?.map((item) => (
+                                <div key={item?.id} className="single_category pd-1" onPointerEnter={() => setCategory(item?.id)}>
+                                    <div className="category_title">
+                                        <div className="left text gap-1">
+                                            <img src={item?.icon} alt="icn1" className="icn1" />
+                                            {getName(item)}
                                         </div>
-                                        <div className="childs">
-                                            {dataSubCategories?.data?.data?.filter((c) => c.category == item?.id)?.map((k) => (
-                                                <p key={k?.id} className="link pd-05 round-05" onClick={() => setSubCat(k?.id)}>{getName(k)}</p>
-                                            ))}
-                                        </div>
+                                        <img src={DownIcon} alt="icn2" className="icn2" />
                                     </div>
-                                ))}
-                                {subCat &&
-                                    <div className="child">
-                                        {dataProductsWith?.data?.data?.results?.map((item) => (
-                                            <Link key={item?.id} to={`/products/${item?.slug}`} className="prod" onClick={() => [setShowCatalog(false), setSubCat("")]}>
-                                                <p className="min-text">{getName(item)}</p>
-                                            </Link>
+                                    <div className="childs">
+                                        {dataProductsWith?.data?.data?.map((c) => (
+                                            c?.category == item?.id &&
+                                            <Link key={c?.id} to={`/products/${c?.slug}`} className="child min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(c)}</Link>
                                         ))}
                                     </div>
-                                }
-                            </div>
-                            {/* {subCat &&
-                                <div className="right pd-2 gap-1">
-                                    {dataProductsWith?.data?.data?.results?.map((item) => (
-                                        <Link key={item?.id} to={`/products/${item?.slug}`} className="prod pd-05 round-05" onClick={() => [setShowCatalog(false), setSubCat("")]}>
-                                            <p className="text">{getName(item)}</p>
-                                        </Link>
-                                    ))}
                                 </div>
-                            } */}
+                            ))}
                         </div>
                     }
                     {showCatalog &&
-                        <div className="contrast-0" onClick={() => [setShowCatalog(false), setSubCat("")]}></div>
+                        <div className="contrast-0" onClick={() => [setShowCatalog(false), setCategory("")]}></div>
                     }
                 </div>
                 <Link to="/about" className="link ver_1 gap-05">

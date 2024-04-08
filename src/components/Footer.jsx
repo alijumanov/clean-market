@@ -11,6 +11,7 @@ import EmailIcon from '../assets/icons/email.svg';
 import LocIcon from '../assets/icons/location1.svg';
 import Facebook from '../assets/icons/facebook2.svg';
 import Telegram from '../assets/icons/telegram1.svg';
+import BottomArrow from '../assets/icons/bottom.svg';
 import Instagram from '../assets/icons/instagram2.svg';
 
 const Footer = () => {
@@ -54,7 +55,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="tool gap-1 mbot-2">
-                    <Link className='text'>{t("products")}</Link>
+                    <Link className='text'>{t("productss")}</Link>
                     {dataCategories?.data?.data?.slice(0, 4)?.map((item) => (
                         <Link key={item?.id} className="min-text">{getName(item)}</Link>
                     ))}
@@ -66,7 +67,9 @@ const Footer = () => {
                     <Link className="min-text">{t("negabiz")}</Link>
                     <Link className="min-text">{t("faq")}</Link>
                 </div>
-                <div className="tool">
+                <div className="tool gap-2">
+                    <Link className="min-text">{t("footer_loc1")}</Link>
+                    <Link className="min-text">{t("footer_loc2")} <img src={BottomArrow} alt="icn" className="icn" /></Link>
                     <a href="https://yandex.ru/navi/?ll=69.220719,41.290161&panorama%5Bpoint%5D=69.220719,41.290161&panorama%5Bdirection%5D=227.914276,-0.865454&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1486659497_804360267_23_1571374783" target={"_blank"} className="map round-05">
                         <img src={Map} alt="img" className="img" />
                     </a>
