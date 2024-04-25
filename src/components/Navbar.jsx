@@ -139,10 +139,10 @@ const Navbar = ({ changeProdValue }) => {
                             {dataCategories?.data?.data?.map((item) => (
                                 <div key={item?.id} className="single_category pd-1" onPointerEnter={() => setCategory(item?.id)}>
                                     <div className="category_title">
-                                        <div className="left text gap-1">
+                                        <Link to={`/categories/${item?.id}`} className="left text gap-1">
                                             <img src={item?.icon} alt="icn1" className="icn1" />
                                             {getName(item)}
-                                        </div>
+                                        </Link>
                                         <img src={DownIcon} alt="icn2" className="icn2" />
                                     </div>
                                     <div className="childs">
