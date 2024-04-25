@@ -311,6 +311,20 @@ $secondary: #072B3D;
                         }
                     }
 
+                    .child_sub {
+                        display: none;
+                        color: $secondary;
+                        padding: 0.5vw 1.5vw;
+
+                        &:hover {
+                            background-color: $primary;
+                        }
+                    }
+
+                    .act_child_sub {
+                        display: flex;
+                    }
+
                     .childs {
                         top: 0;
                         width: 100%;

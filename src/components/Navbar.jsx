@@ -82,9 +82,9 @@ const Navbar = ({ changeProdValue }) => {
 
     const [category, setCategory] = useState("")
 
-    useMemo(() => {
-        setCategory(dataCategories?.data?.data[0]?.id);
-    }, [dataCategories?.isLoading]);
+    // useMemo(() => {
+    //     setCategory(dataCategories?.data?.data[0]?.id);
+    // }, [dataCategories?.isLoading]);
 
     const dataProductsWith = useQuery('products-with-1', fetchProductsAll);
 
@@ -137,14 +137,18 @@ const Navbar = ({ changeProdValue }) => {
                     {showCatalog &&
                         <div className="category_bar">
                             {dataCategories?.data?.data?.map((item) => (
-                                <div key={item?.id} className="single_category pd-1" onPointerEnter={() => setCategory(item?.id)}>
+                                <div key={item?.id} className="single_category pd-1">
                                     <div className="category_title">
-                                        <Link to={`/categories/${item?.id}`} className="left text gap-1">
+                                        <div className="left text gap-1" onClick={() => setCategory(item?.id)}>
                                             <img src={item?.icon} alt="icn1" className="icn1" />
                                             {getName(item)}
-                                        </Link>
+                                        </div>
                                         <img src={DownIcon} alt="icn2" className="icn2" />
                                     </div>
+                                    {dataSubCategories?.data?.data?.map((k) => (
+                                        k?.category == item?.id &&
+                                        <Link to={`/categories/${item?.id}`} key={k?.id} className={`child_sub round-05 min-text ${k?.category == category && "act_child_sub"}`}>{getName(k)}</Link>
+                                    ))}
                                     <div className="childs">
                                         {dataProductsWith?.data?.data?.map((c) => (
                                             c?.category == item?.id &&
