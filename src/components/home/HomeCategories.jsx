@@ -41,7 +41,7 @@ const HomeCategories = () => {
                     className="mySwiper"
                     breakpoints={{
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 4,
                             spaceBetween: 30,
                         }
                     }}

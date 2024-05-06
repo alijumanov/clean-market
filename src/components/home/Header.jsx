@@ -32,13 +32,13 @@ const Header = () => {
                     modules={[Navigation, Pagination, Autoplay]}
                     className="mySwiper">
                     {dataSlider?.data?.data?.map((item) => (
-                        <SwiperSlide key={item?.id} className="lenta">
-                            <div><img src={item?.image} alt="img" className="img" /></div>
+                        <SwiperSlide key={item?.id} className="lenta round-05">
+                            <div><img src={item?.image} alt="img" className="img round-05" /></div>
                         </SwiperSlide>
                     ))}
                     {dataSlider?.data?.data?.map((item) => (
-                        <SwiperSlide key={item?.id} className="lenta">
-                            <div><img src={item?.image} alt="img" className="img" /></div>
+                        <SwiperSlide key={item?.id} className="lenta round-05">
+                            <div><img src={item?.image} alt="img" className="img round-05" /></div>
                         </SwiperSlide>
                     ))}
                 </Swiper>

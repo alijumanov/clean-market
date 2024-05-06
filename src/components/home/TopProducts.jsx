@@ -53,11 +53,10 @@ const TopProducts = ({ changeProdValue }) => {
                     className="mySwiper"
                     breakpoints={{
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 4,
                             spaceBetween: 30,
                         }
-                    }}
-                >
+                    }}>
                     {dataTopProducts?.data?.data?.map((item) => (
                         <SwiperSlide key={item?.id} className="product gap-1 pd-05 round-1">
                             <div className="imgs round-07 pd-1 gap-05">
@@ -82,7 +81,7 @@ const TopProducts = ({ changeProdValue }) => {
                                 </Link>
                             </div>
                             {/* <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p> */}
-                            <p className="min-text desc">{item?.name_en}</p>
+                            <div className="min-text desc">{item?.name_en}</div>
                             <p className="text price">{item?.price}  {t("sum")}</p>
                             <div className="btns gap-1">
                                 <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>{t("buy")}</button>
@@ -90,6 +89,39 @@ const TopProducts = ({ changeProdValue }) => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                <div className='prods gap-1-5'>
+                    {dataTopProducts?.data?.data?.slice(dataTopProducts?.data?.data?.length - 4, dataTopProducts?.data?.data?.length)?.map((item) => (
+                        <div key={item?.id} className="product gap-1 pd-05 round-1">
+                            <div className="imgs round-07 pd-1 gap-05">
+                                {item?.new &&
+                                    <div className="badge round-07 text">Yangilik</div>
+                                }
+                                {item?.percent &&
+                                    <div className="badge round-07 text">{item?.percent}</div>
+                                }
+                                {item?.recommend &&
+                                    <div className="badge round-07 text">Siz uchun</div>
+                                }
+                                <button className='heart_btn pd-05 round-05' onClick={() => saveProduct(item?.id)}>
+                                    {savedProducts?.includes(item?.id) ?
+                                        <img src={Heart1} alt="icn" className='icn' />
+                                        :
+                                        <img src={Heart} alt="icn" className='icn' />
+                                    }
+                                </button>
+                                <Link to={`/products/${item?.slug}`}>
+                                    <img src={item?.image1} alt="img" className="img" />
+                                </Link>
+                            </div>
+                            {/* <p className="min-text desc">{lang == 'uz' ? item?.name_uz : lang == 'ru' ? item?.name_ru : item?.name_en}</p> */}
+                            <div className="min-text desc">{item?.name_en}</div>
+                            <p className="text price">{item?.price}  {t("sum")}</p>
+                            <div className="btns gap-1">
+                                <button className="btn text round-05 op-07 pd-3" onClick={() => changeProdValue(item?.name_uz)}>{t("buy")}</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

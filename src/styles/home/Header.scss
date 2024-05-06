@@ -11,12 +11,12 @@ $secondary: rgb(162, 162, 162);
 .HomeHeader {
     .wrapper {
         // display: flex;
-        padding-top: 14vw;
+        padding-top: 12vw;
         padding-bottom: 2vw;
         // flex-direction: column;
 
         @media (max-width:767px) {
-            padding-top: 44vw;
+            padding-top: 34vw;
         }
 
         .mySwiper {
@@ -30,6 +30,7 @@ $secondary: rgb(162, 162, 162);
             .lenta {
                 height: 24vw;
                 display: flex;
+                overflow: hidden;
                 position: relative;
                 flex-direction: column;
 

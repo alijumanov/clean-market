@@ -58,7 +58,7 @@ $secondary: #072B3D;
         display: flex;
         align-items: center;
         padding: 0.8vw 10vw;
-        background-color: #F4F5F5;
+        background-color: $primary;
         justify-content: space-between;
 
         @media (max-width:767px) {
@@ -80,7 +80,7 @@ $secondary: #072B3D;
             }
 
             .min-text {
-                color: black;
+                color: white;
             }
 
             a {
@@ -102,7 +102,7 @@ $secondary: #072B3D;
                 }
 
                 .min-text {
-                    color: black;
+                    color: white;
                 }
 
                 .icn {
@@ -117,7 +117,7 @@ $secondary: #072B3D;
             }
 
             .tel {
-                color: $primary;
+                color: white;
                 font-weight: 600;
             }
 
@@ -129,7 +129,7 @@ $secondary: #072B3D;
                 .lang_title {
                     gap: 5px;
                     display: flex;
-                    color: black;
+                    color: white;
                     cursor: pointer;
                     align-items: center;
 
@@ -149,8 +149,8 @@ $secondary: #072B3D;
                     z-index: 10;
                     overflow: hidden;
                     position: absolute;
-                    background-color: $primary;
-                    border: solid 1px $primary;
+                    background-color: $secondary;
+                    border: solid 1px $secondary;
 
                     @media (max-width:767px) {
                         top: 4vw;
@@ -173,6 +173,19 @@ $secondary: #072B3D;
                 }
             }
         }
+
+        .bonus_btn {
+            border: none;
+            color: $primary;
+            font-weight: 600;
+            padding: 0.7vw 1.3vw;
+            background-color: white;
+
+            @media (max-width:767px) {
+                display: none;
+                padding: 1.8vw 3vw;
+            }
+        }
     }
 
     .bottom_navbar {
@@ -180,7 +193,6 @@ $secondary: #072B3D;
         padding: 0.5vw 10vw;
         align-items: center;
         background-color: white;
-        // justify-content: space-between;
 
         @media (max-width:767px) {
             gap: 2vw 5vw;
@@ -190,7 +202,6 @@ $secondary: #072B3D;
 
         .logo {
             width: 10vw;
-            // display: none;
             align-items: center;
             justify-content: center;
 
@@ -358,6 +369,122 @@ $secondary: #072B3D;
                     }
                 }
             }
+
+            .category_menu {
+                top: 3.5vw;
+                z-index: 13;
+                left: -10vw;
+                width: 100vw;
+                height: 70vh;
+                display: flex;
+                padding: 2vw 10vw;
+                position: absolute;
+                justify-content: space-between;
+                background-color: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+                @media (max-width:767px) {
+                    top: 8vw;
+                    left: -5vw;
+                    height: auto;
+                    padding: 3vw 5vw;
+                    max-height: 70vh;
+                }
+
+                .categories {
+                    width: 30%;
+                    display: flex;
+                    overflow: auto;
+                    flex-direction: column;
+
+                    @media (max-width:767px) {
+                        width: 45%;
+                    }
+
+                    .category_title {
+                        display: flex;
+                        cursor: pointer;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        @media (max-width:767px) {
+                            margin-top: 3vw;
+                        }
+
+                        .categ {
+                            display: flex;
+                            font-weight: 600;
+                            align-items: center;
+
+                            .icn1 {
+                                max-width: 1.7vw;
+                                min-width: 1.7vw;
+
+                                @media (max-width:767px) {
+                                    max-width: 4vw;
+                                    min-width: 4vw;
+                                }
+                            }
+                        }
+
+                        .icn2 {
+                            max-width: 0.8vw;
+                            min-width: 0.8vw;
+                            transform: rotate(-90deg);
+                            -webkit-transform: rotate(-90deg);
+                            -moz-transform: rotate(-90deg);
+                            -ms-transform: rotate(-90deg);
+                            -o-transform: rotate(-90deg);
+                        }
+                    }
+
+                    .act_categ {
+                        background-color: rgb(228, 228, 228);
+                    }
+                }
+
+                .category_prods {
+                    width: 65%;
+                    gap: 2vw 4vw;
+                    display: grid;
+                    overflow: auto;
+                    grid-template-columns: repeat(2, 2fr);
+
+                    @media (max-width:767px) {
+                        width: 50%;
+                        gap: 5vw;
+                        display: flex;
+                        flex-direction: column;
+                        grid-template-columns: repeat(1, 1fr);
+                    }
+
+                    .sub_categ {
+                        display: flex;
+                        flex-direction: column;
+
+                        .sub_categ_title {
+                            font-weight: 600;
+
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+                        }
+
+                        .prod {
+                            color: black;
+
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                            &:hover {
+                                color: $secondary;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .searching {
@@ -504,7 +631,7 @@ $secondary: #072B3D;
 }
 
 .HideNavbar {
-    top: -8vw;
+    top: -4.5vw;
     transition: 0.2s linear;
     -webkit-transition: 0.2s linear;
     -moz-transition: 0.2s linear;
@@ -520,6 +647,6 @@ $secondary: #072B3D;
     }
 
     @media (max-width:767px) {
-        top: -18vw;
+        top: -8vw;
     }
 }

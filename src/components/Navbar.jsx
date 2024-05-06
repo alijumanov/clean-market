@@ -5,7 +5,7 @@ import Bar from '../assets/icons/bar.svg';
 import { useSelector } from 'react-redux';
 import Down from '../assets/icons/down.svg';
 import Logo from '../assets/images/logo.png';
-import Close from '../assets/icons/close.svg';
+import Close from '../assets/icons/close2.svg';
 import Heart from '../assets/icons/heart1.png';
 import { useTranslation } from 'react-i18next';
 import DownIcon from '../assets/icons/down.svg';
@@ -82,18 +82,24 @@ const Navbar = ({ changeProdValue }) => {
 
     const [category, setCategory] = useState("")
 
-    // useMemo(() => {
-    //     setCategory(dataCategories?.data?.data[0]?.id);
-    // }, [dataCategories?.isLoading]);
+    useMemo(() => {
+        defaultCategory();
+    }, [dataCategories?.isLoading]);
+
+    function defaultCategory() {
+        setCategory(dataCategories?.data?.data?.sort(function (a, b) {
+            return parseInt(b?.id) - parseInt(a?.id)
+        })[0]?.id);
+    };
 
     const dataProductsWith = useQuery('products-with-1', fetchProductsAll);
 
     return (
         <div className={`Navbar ${scroll && "HideNavbar"}`}>
-            <div className="top_navbar">
+            {/* <div className="top_navbar">
                 <p className="text desc">{t("h1")}</p>
                 <button className="bonus_btn round-05 text scale-05" onClick={() => changeProdValue("1")}>{t("hbutton")}</button>
-            </div>
+            </div> */}
             <div className="middle_navbar gap-2">
                 <div className="left gap-05">
                     <img src={Location} alt="loc" className="loc" />
@@ -126,43 +132,71 @@ const Navbar = ({ changeProdValue }) => {
                             <div className="contrast-0" onClick={() => setShowLanguage(false)}></div>
                         }
                     </div>
+                    <button className="bonus_btn round-05 text scale-05" onClick={() => changeProdValue("1")}>{t("hbutton")}</button>
                 </div>
             </div>
             <div className="bottom_navbar gap-2">
-                <Link to="/" onClick={() => window.scrollTo(0, 0)} className="logo">
-                    <img src={Logo} alt="logo" />
-                </Link>
                 <div className="catalog">
-                    <button className="catalog_btn round-05 gap-05 op-07" onClick={() => setShowCatalog(true)}><img src={Bar} alt="icn" className='icn' /> <p className="text">{t("cat")}</p></button>
+                    <button className="catalog_btn round-05 gap-05 op-07" onClick={() => [setShowCatalog(true), defaultCategory()]}><img src={showCatalog ? Close : Bar} alt="icn" className='icn' /> <p className="text">{t("cat")}</p></button>
                     {showCatalog &&
-                        <div className="category_bar">
-                            {dataCategories?.data?.data?.map((item) => (
-                                <div key={item?.id} className="single_category pd-1">
-                                    <div className="category_title">
-                                        <div className="left text gap-1" onClick={() => setCategory(item?.id)}>
+                        // <div className="category_bar">
+                        //     {dataCategories?.data?.data?.map((item) => (
+                        //         <div key={item?.id} className="single_category pd-1">
+                        //             <div className="category_title">
+                        //                 <div className="left text gap-1" onClick={() => setCategory(item?.id)}>
+                        //                     <img src={item?.icon} alt="icn1" className="icn1" />
+                        //                     {getName(item)}
+                        //                 </div>
+                        //                 <img src={DownIcon} alt="icn2" className="icn2" />
+                        //             </div>
+                        //             {dataSubCategories?.data?.data?.map((k) => (
+                        //                 k?.category == item?.id &&
+                        //                 <Link to={`/categories/${item?.id}`} key={k?.id} className={`child_sub round-05 min-text ${k?.category == category && "act_child_sub"}`}>{getName(k)}</Link>
+                        //             ))}
+                        //             <div className="childs">
+                        //                 {dataProductsWith?.data?.data?.map((c) => (
+                        //                     c?.category == item?.id &&
+                        //                     <Link key={c?.id} to={`/products/${c?.slug}`} className="child min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(c)}</Link>
+                        //                 ))}
+                        //             </div>
+                        //         </div>
+                        //     ))}
+                        // </div>
+                        <div className="category_menu">
+                            <div className="categories">
+                                {dataCategories?.data?.data?.sort(function (a, b) {
+                                    return parseInt(b?.id) - parseInt(a?.id)
+                                })?.map((item) => (
+                                    <div key={item?.id} className={`category_title pd-1 round-05 ${category == item?.id && "act_categ"}`} onPointerEnter={() => setCategory(item?.id)} onClick={() => setCategory(item?.id)}>
+                                        <div className="categ min-text gap-1">
                                             <img src={item?.icon} alt="icn1" className="icn1" />
                                             {getName(item)}
                                         </div>
                                         <img src={DownIcon} alt="icn2" className="icn2" />
                                     </div>
-                                    {dataSubCategories?.data?.data?.map((k) => (
-                                        k?.category == item?.id &&
-                                        <Link to={`/categories/${item?.id}`} key={k?.id} className={`child_sub round-05 min-text ${k?.category == category && "act_child_sub"}`}>{getName(k)}</Link>
-                                    ))}
-                                    <div className="childs">
-                                        {dataProductsWith?.data?.data?.map((c) => (
-                                            c?.category == item?.id &&
-                                            <Link key={c?.id} to={`/products/${c?.slug}`} className="child min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(c)}</Link>
+                                ))}
+                            </div>
+                            <div className="category_prods">
+                                {dataSubCategories?.data?.data?.map((c) => (
+                                    c?.category == category &&
+                                    <div className='sub_categ gap-05'>
+                                        <p key={c?.id} className="sub_categ_title min-text mbot-05">{getName(c)}</p>
+                                        {dataProductsWith?.data?.data?.map((k) => (
+                                            k?.category == category && k?.sub_category == c?.id &&
+                                            <Link Link key={k?.id} to={`/products/${k?.slug}`} className="prod min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(k)}</Link>
                                         ))}
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     }
                     {showCatalog &&
                         <div className="contrast-0" onClick={() => [setShowCatalog(false), setCategory("")]}></div>
                     }
                 </div>
+                <Link to="/" onClick={() => window.scrollTo(0, 0)} className="logo">
+                    <img src={Logo} alt="logo" />
+                </Link>
                 <Link to="/about" className="link ver_1 gap-05">
                     <p className="min-text"><b>{t("about")}</b></p>
                 </Link>
@@ -196,7 +230,7 @@ const Navbar = ({ changeProdValue }) => {
                     <p className="min-text"><b>{t("yurakcha")}</b></p>
                 </Link>
             </div>
-        </div>
+        </div >
     );
 };
 
