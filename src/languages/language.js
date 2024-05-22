@@ -6,11 +6,11 @@ export const changeLang = (item) => {
 
 export const getName = (item) => {
     if (lang == "uz") {
-        return item.name_uz
+        return item.name_uz.split('/rn/')[0]
     } else if (lang == "ru") {
-        return item.name_ru
+        return item.name_ru.split('/rn/')[0]
     } else {
-        return item.name_en
+        return item.name_en.split('/rn/')[0]
     }
 };
 

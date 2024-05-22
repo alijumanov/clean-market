@@ -165,7 +165,7 @@ const Navbar = ({ changeProdValue }) => {
                         <div className="category_menu">
                             <div className="categories">
                                 {dataCategories?.data?.data?.sort(function (a, b) {
-                                    return parseInt(b?.id) - parseInt(a?.id)
+                                    return parseInt(a?.name_uz?.split("/rn/")[1]) - parseInt(b?.name_uz?.split("/rn/")[1])
                                 })?.map((item) => (
                                     <div key={item?.id} className={`category_title pd-1 round-05 ${category == item?.id && "act_categ"}`} onPointerEnter={() => setCategory(item?.id)} onClick={() => setCategory(item?.id)}>
                                         <div className="categ min-text gap-1">
@@ -180,11 +180,11 @@ const Navbar = ({ changeProdValue }) => {
                                 {dataSubCategories?.data?.data?.map((c) => (
                                     c?.category == category &&
                                     <div className='sub_categ gap-05'>
-                                        <p key={c?.id} className="sub_categ_title min-text mbot-05">{getName(c)}</p>
-                                        {dataProductsWith?.data?.data?.map((k) => (
+                                        <Link to={`/sub-categories/${c?.id}`} key={c?.id} className="sub_categ_title min-text mbot-05">{getName(c)}</Link>
+                                        {/* {dataProductsWith?.data?.data?.map((k) => (
                                             k?.category == category && k?.sub_category == c?.id &&
                                             <Link Link key={k?.id} to={`/products/${k?.slug}`} className="prod min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(k)}</Link>
-                                        ))}
+                                        ))} */}
                                     </div>
                                 ))}
                             </div>

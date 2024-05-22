@@ -446,9 +446,11 @@ $secondary: #072B3D;
                 .category_prods {
                     width: 65%;
                     gap: 2vw 4vw;
-                    display: grid;
+                    display: flex;
                     overflow: auto;
-                    grid-template-columns: repeat(2, 2fr);
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    // grid-template-columns: repeat(2, 2fr);
 
                     @media (max-width:767px) {
                         width: 50%;
