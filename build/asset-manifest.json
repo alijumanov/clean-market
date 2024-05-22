@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.667f1c0b.css",
-    "main.js": "/static/js/main.fb510382.js",
+    "main.css": "/static/css/main.16488ae1.css",
+    "main.js": "/static/js/main.74bfe271.js",
     "static/media/news.png": "/static/media/news.64886bd9fd6058aab8bd.png",
     "static/media/map.jpg": "/static/media/map.30c444482438ea78ad82.jpg",
     "static/media/deposit.png": "/static/media/deposit.ccf4bf8a4e0caf2da3d0.png",
     "static/media/discount.png": "/static/media/discount.3f979949e7fdcee33844.png",
     "static/media/prod.png": "/static/media/prod.ed9078176bed7cbcbf95.png",
     "static/media/settings.png": "/static/media/settings.81425e0fe63cc997c55e.png",
-    "static/media/logo.png": "/static/media/logo.ab836d93f6b2aa25c8be.png",
+    "static/media/logo.png": "/static/media/logo.69ec12fd9907c03a9651.png",
     "static/media/instagram.svg": "/static/media/instagram.15618e7f7e625b7694935dd597571837.svg",
     "static/media/category.svg": "/static/media/category.37d4db6180dfbe7b9b229fbe6033740d.svg",
     "static/media/heart2.svg": "/static/media/heart2.e56530df0538112dcc9f915738876ee2.svg",
@@ -33,11 +33,11 @@
     "static/media/close.svg": "/static/media/close.0af554bef6dd1ba0f350bf47e2f58b0d.svg",
     "static/media/close2.svg": "/static/media/close2.4ab46b1f9ddef74e3d6ce54db144aa27.svg",
     "static/media/down.svg": "/static/media/down.12b83e5038c9fba7772e171446ac6369.svg",
-    "main.667f1c0b.css.map": "/static/css/main.667f1c0b.css.map",
-    "main.fb510382.js.map": "/static/js/main.fb510382.js.map"
+    "main.16488ae1.css.map": "/static/css/main.16488ae1.css.map",
+    "main.74bfe271.js.map": "/static/js/main.74bfe271.js.map"
   },
   "entrypoints": [
-    "static/css/main.667f1c0b.css",
-    "static/js/main.fb510382.js"
+    "static/css/main.16488ae1.css",
+    "static/js/main.74bfe271.js"
   ]
 }

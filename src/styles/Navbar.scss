@@ -375,10 +375,11 @@ $secondary: #072B3D;
                 z-index: 13;
                 left: -10vw;
                 width: 100vw;
-                height: 70vh;
+                height: 50vh;
                 display: flex;
                 padding: 2vw 10vw;
                 position: absolute;
+                align-items: flex-start;
                 justify-content: space-between;
                 background-color: rgb(255, 255, 255);
                 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -396,6 +397,7 @@ $secondary: #072B3D;
                     display: flex;
                     overflow: auto;
                     flex-direction: column;
+                    border-right: solid 1px rgb(207, 207, 207);
 
                     @media (max-width:767px) {
                         width: 45%;
@@ -446,11 +448,11 @@ $secondary: #072B3D;
                 .category_prods {
                     width: 65%;
                     gap: 2vw 4vw;
-                    display: flex;
+                    display: grid;
                     overflow: auto;
                     flex-wrap: wrap;
                     align-items: flex-start;
-                    // grid-template-columns: repeat(2, 2fr);
+                    grid-template-columns: repeat(2, 2fr);
 
                     @media (max-width:767px) {
                         width: 50%;
@@ -465,10 +467,15 @@ $secondary: #072B3D;
                         flex-direction: column;
 
                         .sub_categ_title {
+                            color: black;
                             font-weight: 600;
 
                             &::first-letter {
                                 text-transform: uppercase;
+                            }
+
+                            &:hover {
+                                text-decoration: underline;
                             }
                         }
 
