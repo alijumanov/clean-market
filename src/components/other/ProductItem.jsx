@@ -9,6 +9,7 @@ import TopProducts from '../home/TopProducts';
 import { useTranslation } from 'react-i18next';
 import { fetchProductItem } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { getName } from '../../languages/language';
 
 const ProductItem = ({ changeProdValue }) => {
 
@@ -39,7 +40,7 @@ const ProductItem = ({ changeProdValue }) => {
         <>
             <div className="ProductItem parent">
                 <div key={dataProductItem?.data?.data?.id} className="wrapper gap-2">
-                    <h1 className="name">{lang == 'uz' ? dataProductItem?.data?.data?.name_uz : lang == 'ru' ? dataProductItem?.data?.data?.name_ru : dataProductItem?.data?.data?.name_en}</h1>
+                    <h1 className="name">{getName(dataProductItem?.data?.data)}</h1>
                     <div className="infos gap-3">
                         <div className="left gap-1">
                             <div className="main_img">
