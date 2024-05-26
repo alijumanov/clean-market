@@ -9,7 +9,6 @@ import TopProducts from '../home/TopProducts';
 import { useTranslation } from 'react-i18next';
 import { fetchProductItem } from '../../api/Api';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getName } from '../../languages/language';
 
 const ProductItem = ({ changeProdValue }) => {
 
@@ -34,13 +33,11 @@ const ProductItem = ({ changeProdValue }) => {
         setImageValue(dataProductItem?.data?.data?.image1)
     }, [dataProductItem?.isLoading]);
 
-    console.log(dataProductItem?.data?.data)
-
     return (
         <>
             <div className="ProductItem parent">
                 <div key={dataProductItem?.data?.data?.id} className="wrapper gap-2">
-                    <h1 className="name">{getName(dataProductItem?.data?.data)}</h1>
+                    <h1 className="name">{lang == 'uz' ? dataProductItem?.data?.data?.name_uz.split('/rn/')[0] : lang == 'ru' ? dataProductItem?.data?.data?.name_ru : dataProductItem?.data?.data?.name_en}</h1>
                     <div className="infos gap-3">
                         <div className="left gap-1">
                             <div className="main_img">

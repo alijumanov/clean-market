@@ -180,7 +180,7 @@ const Navbar = ({ changeProdValue }) => {
                                 {dataSubCategories?.data?.data?.map((c) => (
                                     c?.category == category &&
                                     <div className='sub_categ gap-05'>
-                                        <Link to={`/sub-categories/${c?.id}`} key={c?.id} className="sub_categ_title min-text mbot-05">{getName(c)}</Link>
+                                        <Link to={`/sub-categories/${c?.id}`} key={c?.id} className="sub_categ_title min-text mbot-05" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(c)}</Link>
                                         {/* {dataProductsWith?.data?.data?.map((k) => (
                                             k?.category == category && k?.sub_category == c?.id &&
                                             <Link Link key={k?.id} to={`/products/${k?.slug}`} className="prod min-text" onClick={() => [setShowCatalog(false), setCategory("")]}>{getName(k)}</Link>

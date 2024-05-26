@@ -8,9 +8,9 @@ export const getName = (item) => {
     if (lang == "uz") {
         return item.name_uz.split('/rn/')[0]
     } else if (lang == "ru") {
-        return item.name_ru.split('/rn/')[0]
+        return item.name_ru
     } else {
-        return item.name_en.split('/rn/')[0]
+        return item.name_en
     }
 };
 
