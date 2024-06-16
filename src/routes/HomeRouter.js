@@ -19,9 +19,9 @@ const HomeRouter = ({ changeProdValue }) => {
             <Advantages />
             <Partners />
             <Bonus />
-            <HomeNews />
+            {/* <HomeNews />
             <Infographics />
-            <FAQ />
+            <FAQ /> */}
             <Contacts />
         </>
     );

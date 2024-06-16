@@ -201,12 +201,14 @@ $secondary: #072B3D;
         }
 
         .logo {
-            width: 10vw;
+            // border: solid 1px;
+            width: 12.3vw;
+            display: flex;
             align-items: center;
             justify-content: center;
 
             @media (max-width:767px) {
-                width: 25vw;
+                width: 32vw;
             }
 
             img {

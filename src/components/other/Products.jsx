@@ -40,35 +40,10 @@ const Products = ({ changeProdValue }) => {
     // i18next
 
     const { t } = useTranslation();
-    let lang = localStorage.getItem('i18nextLng');
-
-    console.log(path.pathname)
 
     return (
         <div className='Products parent'>
             <div className="wrapper">
-                <div className="left gap-1">
-                    {/* {path.pathname == `/sub-categories/${id}` ?
-                        dataSubCategories?.data?.data?.filter((c) => c?.id == id)?.map((item) => (
-                            <h1 key={item?.id} className="big-text">{getName(item)}</h1>
-                        ))
-                        :
-                        <h1 className="big-text">{t("productss")}</h1>
-                    } */}
-                    <p className="min-text"><b>{t("subs")}</b></p>
-                    {dataCategories?.data?.data?.sort(function (a, b) {
-                        return parseInt(a?.name_uz?.split("/rn/")[1]) - parseInt(b?.name_uz?.split("/rn/")[1])
-                    })?.map((item) => (
-                        <Link key={item?.id} to={`/categories/${item?.id}`} className={`link pd-05 round-05 ${item?.id == id && "active_link"}`}>
-                            <p className="min-text">{getName(item)}</p>
-                            {item?.icon ?
-                                <img src={item?.icon} alt="icn" className="icn" />
-                                :
-                                <img src={Icon} alt="icn" className="icn" />
-                            }
-                        </Link>
-                    ))}
-                </div>
                 <div className="right gap-2">
                     {/* <h1 className="name">{t("productss")}</h1> */}
                     {path.pathname == `/sub-categories/${id}` ?
