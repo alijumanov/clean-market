@@ -50,8 +50,13 @@ $secondary: #072B3D;
                 }
 
                 .text {
+                    height: 3.3vw;
                     color: black;
                     font-weight: 600;
+
+                    @media (max-width:767px) {
+                        height: 9vw;
+                    }
                 }
 
                 .min-text {

@@ -115,7 +115,7 @@ const Navbar = ({ changeProdValue }) => {
                         <img src={Telegram} alt="icn" className="icn" />
                         <p className="min-text">{t("tele")}</p>
                     </a>
-                    <a href="tel:+998712007002" target={"_blank"} className="tel text">+998 71 200 70 02</a>
+                    <a href="tel:+998555001411" target={"_blank"} className="tel text">+998 55 500 14 11</a>
                     <div className="language">
                         <div className="lang_title" onClick={() => setShowLanguage(true)}>
                             <p className="min-text">{langTitle == "uz" ? "O'z" : langTitle == "ru" ? "Рус" : "Eng"}</p>

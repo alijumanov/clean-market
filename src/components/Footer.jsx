@@ -30,7 +30,7 @@ const Footer = () => {
                 <div className="tool gap-1">
                     <div className="big-text">{t("Clemar")}</div>
                     <p className="min-text mtop-05">{t("contacts")}</p>
-                    <a href="tel:+998998606060" className="text">+998 99 860 60 60</a>
+                    <a href="tel:+998990081411" className="text">+998 99 008 14 11</a>
                     <a href='https://yandex.ru/navi/?ll=69.220719,41.290161&panorama%5Bpoint%5D=69.220719,41.290161&panorama%5Bdirection%5D=227.914276,-0.865454&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1486659497_804360267_23_1571374783' target={"_blank"} className="location gap-05 mtop-05">
                         <img src={LocIcon} alt="icn" className="icn" />
                         <p className="min-text">{t("dokon")}</p>
