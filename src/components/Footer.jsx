@@ -40,16 +40,16 @@ const Footer = () => {
                         <p className="min-text">{t("mail")}</p>
                     </a>
                     <div className="socials gap-1-5 mtop-1">
-                        <a href="#" target={"_blank"} className="icon scale-1">
+                        <a href="https://www.instagram.com/cleanmarket.uz" target={"_blank"} className="icon scale-1">
                             <img src={Instagram} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon scale-1">
+                        <a href="https://www.facebook.com/profile.php?" target={"_blank"} className="icon scale-1">
                             <img src={Facebook} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon scale-1">
+                        <a href="https://youtube.com/@cleanmarket_uz" target={"_blank"} className="icon scale-1">
                             <img src={Youtube} alt="icn" className="icn" />
                         </a>
-                        <a href="#" target={"_blank"} className="icon scale-1">
+                        <a href="https://t.me/cleaning_market" target={"_blank"} className="icon scale-1">
                             <img src={Telegram} alt="icn" className="icn" />
                         </a>
                     </div>
