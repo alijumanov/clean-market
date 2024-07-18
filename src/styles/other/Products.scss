@@ -198,8 +198,12 @@ $secondary: #072B3D;
                         font-weight: 700;
                         overflow: hidden;
                         display: -webkit-box;
-                        -webkit-line-clamp: 2;
+                        -webkit-line-clamp: 1;
                         -webkit-box-orient: vertical;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
                     }
 
                     .price {

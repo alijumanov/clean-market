@@ -102,6 +102,10 @@ $secondary: #072B3D;
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
                 }
 
                 .price {
